@@ -1,0 +1,12 @@
+name = "R3F Advance Logistics";
+picture = "logo_r3fadvlog_ca.paa";
+actionName = "GitHub";
+action = "https://github.com/stcrowe/R3FAdvLog";
+description = "Integrate the R3F logistics framework by the R3F team and the Advance Towing mod by duda with CBA/ACE3 Frameworks";
+logo = "logo_r3fadvlog_ca.paa";
+logoOver = "logo_r3fadvlog_ca.paa";
+tooltip = "R3F Advance Logistics";
+tooltipOwned = "R3F Advance Logistics Owned";
+overview = "R3F Advance Logistics";
+author = "S.Crowe";
+overviewPicture = "logo_ace3_ca.paa";

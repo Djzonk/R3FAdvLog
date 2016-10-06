@@ -1,1 +1,0 @@
-(isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull]) AND vehicle player == player)
