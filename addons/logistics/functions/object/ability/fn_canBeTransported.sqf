@@ -1,4 +1,3 @@
-// TODO: REWORK
 private ["_class_heritage, _can_transport_cargo, _can_transport_cargo_cout"];
 
 params [["_object", objNull]];

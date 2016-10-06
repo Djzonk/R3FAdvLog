@@ -1,21 +1,4 @@
 /*
- * Author: [Name of Author(s)]
- * [Description]
- *
- * Arguments:
- * 0: Argument Name <TYPE>
- *
- * Return Value:
- * Return Name <TYPE>
- *
- * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
- *
- * Public: [Yes/No]
- */
-#include "script_component.hpp"
-
-/*
 Modified by Sean Crowe
 please see orginal work @ forums.bistudio.com/topic/188980-advanced-towing
 
@@ -41,7 +24,7 @@ _rules = [
 	["Tank","CAN_TOW","Car"],
 	["Tank","CAN_TOW","Ship"],
 	["Tank","CAN_TOW","Air"],
-	["Car","CAN_TOW","Tank"],
+	["Car","CANT_TOW","Tank"],
 	["Car","CAN_TOW","Car"],
 	["Car","CAN_TOW","Ship"],
 	["Car","CAN_TOW","Air"],

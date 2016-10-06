@@ -1,20 +1,3 @@
-/*
- * Author: [Name of Author(s)]
- * [Description]
- *
- * Arguments:
- * 0: Argument Name <TYPE>
- *
- * Return Value:
- * Return Name <TYPE>
- *
- * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
- *
- * Public: [Yes/No]
- */
-#include "script_component.hpp"
-
 params ["_vehicle","_player"];
 
 if (!local _vehicle) then
@@ -49,3 +32,4 @@ private ["_existingTowRopes","_hitchPoint","_rope"];
 
 _vehicle setVariable ["AdvLog_attachedECable", false, true];
 [_player, "AdvLog_TowCable"] call ace_common_fnc_addToInventory;
+[_player,1,["ACE_SelfActions", "ACE_Equipment", 'AdvTow_Drop']] call ace_interact_menu_fnc_removeActionFromObject;

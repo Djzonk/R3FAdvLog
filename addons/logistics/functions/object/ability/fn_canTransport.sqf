@@ -2,7 +2,6 @@ private ["_class_heritage, _can_transport_cargo, _can_transport_cargo_cout"];
 
 params [["_object", objNull]];
 
-// return false if Advlog is not enabled
 if (!(missionNamespace getVariable ["AdvLog_Endabled", true])) exitWith {[false, 0]};
 
 if (isNull _object) exitWith {["Error: Object is Null"] call AdvLog_fnc_globalMessage; [false, 0]};

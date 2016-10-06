@@ -1,20 +1,3 @@
-/*
- * Author: [Name of Author(s)]
- * [Description]
- *
- * Arguments:
- * 0: Argument Name <TYPE>
- *
- * Return Value:
- * Return Name <TYPE>
- *
- * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
- *
- * Public: [Yes/No]
- */
-#include "script_component.hpp"
-
 params [["_vehicle", objNull]];
 
 if (isNull _vehicle) exitWith {};
@@ -27,3 +10,5 @@ _myaction = ["AdvTow_takeRopes", "Attach Emergency Tow Cable","",{_this call Adv
 _myaction = ["AdvTow_takeRopes", "Remove Emergency Tow Cable","",{_this call AdvLog_fnc_removeECable;},{_existingTowRopes = (_this select 0) getVariable ["SA_Tow_Ropes",[]]; _target getVariable ["AdvLog_attachedECable", false] AND (count _existingTowRopes) > 0},{}] call ace_interact_menu_fnc_createAction;
 
 [_vehicle, 0, ["ACE_MainActions"], _myaction] call ace_interact_menu_fnc_addActionToObject;
+
+

@@ -240,11 +240,11 @@ else
 
 					R3F_LOG_mutex_local_lock = false;
 
-					// Boucle de gestion des ?v?nements et du positionnement pendant le d?placement
+					// events management loop and positioning during movement
 					while {!isNull R3F_LOG_player_moves_object && _object getVariable "R3F_LOG_is_moved_by" == _player && alive _player} do
 					{
 						// Gestion de l'orientation de l'objet en fonction du terrain
-						if (local _object) then
+						if (local _object && !(_player getVariable["R3F_animation", false])) then
 						{
 							// En fonction de la touche appuy?e (X/C), on fait pivoter l'objet
 							if (R3F_LOG_player_deplace_key_rotation == "X" || R3F_LOG_player_deplace_key_rotation == "C") then

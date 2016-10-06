@@ -71,7 +71,7 @@ R3F_LOG_CFG_can_be_moved_by_player append
 
 R3F_LOG_CFG_can_be_pushed_by_player append
 [
-	"quadbike_base_f",
+	"Quadbike_01_base_F",
 	"MRAP_01_base_F",
 	"MRAP_02_base_F",
 	"MRAP_03_base_F",
