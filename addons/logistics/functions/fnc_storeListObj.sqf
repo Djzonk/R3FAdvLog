@@ -1,13 +1,19 @@
-/**
- * Saves the values of the fields before closing the creation factory dialog
- * ouvrir_factory.sqf s'en servira pour la pr?remplir ? l'ouverture
+/*
+ * Author: [Name of Author(s)]
+ * [Description]
  *
- * Copyright (C) 2014 Team ~R3F~
+ * Arguments:
+ * 0: Argument Name <TYPE>
  *
- * This program is free software under the terms of the GNU General Public License version 3.
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
  */
+#include "script_component.hpp"
 #include "\z\r3fadvlog\addons\logistics\dlgDefines.hpp"
 
 disableSerialization; // A cause des displayCtrl

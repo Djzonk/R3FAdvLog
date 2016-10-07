@@ -42,15 +42,45 @@ else
 	if (lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects == -1) exitWith {R3F_LOG_mutex_local_lock = false;};
 	_classe = lbData [R3F_LOG_IDC_dlg_LO_liste_objects, lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects];
 
-	_dlg_liste_objects = findDisplay R3F_LOG_IDD_dlg_liste_objects;
-
-	_sel_categorie = lbCurSel (_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_liste_categories);
-
 	if (_classe != "") then
 	{
 
+		_topIndex = nil;
+		_bottomIndex = nil;
 
-		_cout = [_factory, _sel_categorie, _classe] call AdvLog_fnc_getCreationCosts;
+		_factoryClasses = _factory getVariable ["R3F_LOG_CF_cfgVehicles_par_categories", []];
+		_factoryCosts = _factory getVariable ["R3F_LOG_CF_cfgVehicles_costs", []];
+
+		{
+			_category = _x;
+
+			_index = _foreachIndex;
+
+			if (count _category > 0) then
+			{
+				{
+
+					if (_x == _classe AND isNil "_bottomIndex") then
+					{
+						_bottomIndex = _foreachIndex;
+					};
+				} forEach _category;
+
+				if (!(isNil "_bottomIndex") AND isNil "_topIndex") then
+				{
+					_topIndex = _index;
+				};
+			};
+
+		} forEach _factoryClasses;
+
+		_cout = 0;
+
+		if (!(isNil "_topIndex")) then
+		{
+
+			_cout = (_factoryCosts select _topIndex) select _bottomIndex;
+		};
 
 		_est_deplacable = [_classe] call AdvLog_fnc_canMoveClass;
 
@@ -114,26 +144,14 @@ else
 						// D?sactivation du bouton fermer car la cr?ation est engag?e
 						(findDisplay R3F_LOG_IDD_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_btn_fermer) ctrlEnable false;
 
-						// M?moriser que cet objet a ?t? cr?? depuis une usis
+						// M?moriser que cet objet a ?t? cr?? depuis une usine
 						_object setVariable ["R3F_LOG_CF_depuis_factory", true, true];
-						_object setVariable ["R3F_LOG_CF_date_created", date, true];
-						_object setVariable ["R3F_LOG_CF_cost", _cout, true];
-						//[_object, player] call R3F_LOG_FNCT_define_lock_owner;
 
 						sleep 0.5;
 
 						// Informer tout le monde qu'il y a un nouvel objet
-						//R3F_LOG_PUBVAR_nouvel_object_a_initialiser = true;
-						//publicVariable "R3F_LOG_PUBVAR_nouvel_object_a_initialiser";
-
-						// Prise en compte de l'objet dans l'environnement du joueur (acc?l?rer le retour des addActions)
-						/*_object spawn
-						{
-							sleep 4;
-							R3F_LOG_PUBVAR_reveal_the_player = _this;
-							publicVariable "R3F_LOG_PUBVAR_reveal_the_player";
-							["R3F_LOG_PUBVAR_reveal_the_player", R3F_LOG_PUBVAR_reveal_the_player] spawn R3F_LOG_FNCT_PUBVAR_reveal_the_player;
-						};*/
+						R3F_LOG_PUBVAR_nouvel_object_a_initialiser = true;
+						publicVariable "R3F_LOG_PUBVAR_nouvel_object_a_initialiser";
 
 						// Si l'objet cr?? est un drone, on y place des IA en ?quipage
 						if (getNumber (configFile >> "CfgVehicles" >> (typeOf _object) >> "isUav") == 1) then
@@ -146,9 +164,6 @@ else
 						{
 							R3F_LOG_mutex_local_lock = false;
 							[_object, player, 0, true] spawn AdvLog_fnc_moveObj;
-
-
-							///[[_object]] spawn AdvLog_fnc_objectInit;
 						}
 						else
 						{

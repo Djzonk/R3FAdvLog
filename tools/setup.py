@@ -13,7 +13,7 @@ import winreg
 
 ######## GLOBALS #########
 MAINDIR = "z"
-PROJECTDIR = "proj_templ"
+PROJECTDIR = "r3fadvlog"
 ##########################
 
 def main():

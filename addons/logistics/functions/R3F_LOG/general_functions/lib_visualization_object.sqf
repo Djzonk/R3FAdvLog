@@ -8,13 +8,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ /*
+  * Author: [Name of Author(s)]
+  * [Description]
+  *
+  * Arguments:
+  * 0: Argument Name <TYPE>
+  *
+  * Return Value:
+  * Return Name <TYPE>
+  *
+  * Example:
+  * ["example"] call ace_[module]_fnc_[functionName]
+  *
+  * Public: [Yes/No]
+  */
+#include "script_component.hpp"
 
 /**
  * D?marre le mode de visualisation 3D
  */
-R3F_LOG_VIS_FNCT_demarrer_visualisation =
-{
-	// Cr?ation d'une cam?ra
+R3F_LOG_VIS_FNCT_demarrer_visualisation = {
+	// Creating a camera
 	R3F_LOG_VIS_cam = "camera" camCreate ([[5000, 5000, 0]] call R3F_LOG_FNCT_3D_tirer_position_degagee_ciel);
 	R3F_LOG_VIS_cam cameraEffect ["Internal", "BACK"];
 	R3F_LOG_VIS_cam camSetFocus [-1, -1];
@@ -24,12 +39,10 @@ R3F_LOG_VIS_FNCT_demarrer_visualisation =
 
 	R3F_LOG_VIS_object = objNull;
 
-	// Fil d'ex?cution r?alisant une rotation continue de la cam?ra autour de l'objet ? visualiser
-	0 spawn
-	{
-		// Tant qu'on ne quitte pas la visualisation
-		while {!isNull R3F_LOG_VIS_cam} do
-		{
+	// Thread of execution performing a continuous rotation of the camera around the object? display
+	0 spawn {
+		// Until Visualization is closed
+		while {!isNull R3F_LOG_VIS_cam} do {
 			private ["_object", "_distance_cam", "_azimut_cam"];
 
 			// Attente d'un objet ? visualiser
@@ -48,9 +61,8 @@ R3F_LOG_VIS_FNCT_demarrer_visualisation =
 			R3F_LOG_VIS_cam camSetPos (_object modelToWorld [_distance_cam * sin _azimut_cam, _distance_cam * cos _azimut_cam, _distance_cam * 0.33]);
 			R3F_LOG_VIS_cam camCommit 0;
 
-			// Rotation autour de l'objet
-			while {R3F_LOG_VIS_object == _object} do
-			{
+			// Rotation around the object
+			while {R3F_LOG_VIS_object == _object} do {
 				_azimut_cam = _azimut_cam + 3.25;
 
 				R3F_LOG_VIS_cam camSetPos (_object modelToWorld [_distance_cam * sin _azimut_cam, _distance_cam * cos _azimut_cam, _distance_cam * 0.33]);
@@ -62,11 +74,8 @@ R3F_LOG_VIS_FNCT_demarrer_visualisation =
 	};
 };
 
-/**
- * Termine le mode de visualisation 3D
- */
-R3F_LOG_VIS_FNCT_terminer_visualisation =
-{
+// Ends 3D viewing mode
+R3F_LOG_VIS_FNCT_terminer_visualisation = {
 	if (!isNull R3F_LOG_VIS_object) then {detach R3F_LOG_VIS_object; deleteVehicle R3F_LOG_VIS_object;};
 	R3F_LOG_VIS_object = objNull;
 
@@ -76,28 +85,24 @@ R3F_LOG_VIS_FNCT_terminer_visualisation =
 };
 
 /**
- * Visualiser un type d'objet en 3D
+ * Visualize an object type in 3D
  *
  * @param 0 le nom de classe de l'objet ? visualiser
  */
-R3F_LOG_VIS_FNCT_voir_object =
-{
+R3F_LOG_VIS_FNCT_voir_object = {
 	private ["_classe_a_visualiser", "_object", "_position_attache"];
 
-	if (isNil "R3F_LOG_VIS_cam") then
-	{
+	if (isNil "R3F_LOG_VIS_cam") then {
 		call R3F_LOG_VIS_FNCT_demarrer_visualisation;
 	};
 
 	_classe_a_visualiser = _this select 0;
 
-	// Ignorer les objets non instanciables
-	if (_classe_a_visualiser != "" && {isClass (configFile >> "CfgVehicles" >> _classe_a_visualiser) && {getNumber (configFile >> "CfgVehicles" >> _classe_a_visualiser >> "scope") > 0}}) then
-	{
+	// Ignore Hidden objects
+	if (_classe_a_visualiser != "" && {isClass (configFile >> "CfgVehicles" >> _classe_a_visualiser) && {getNumber (configFile >> "CfgVehicles" >> _classe_a_visualiser >> "scope") > 0}}) then {
 		// Ignorer si l'objet ? visualiser est le m?me que pr?c?demment
-		if (isNull R3F_LOG_VIS_object || {_classe_a_visualiser != typeOf R3F_LOG_VIS_object}) then
-		{
-			// Cr?er et placer l'objet dans le ciel
+		if (isNull R3F_LOG_VIS_object || {_classe_a_visualiser != typeOf R3F_LOG_VIS_object}) then {
+			// Create and place the object in the sky
 			_position_attache = [[5000, 5000, 0]] call R3F_LOG_FNCT_3D_tirer_position_degagee_ciel;
 			_object = _classe_a_visualiser createVehicleLocal _position_attache;
 			_object attachTo [R3F_LOG_PUBVAR_point_attache, _position_attache];

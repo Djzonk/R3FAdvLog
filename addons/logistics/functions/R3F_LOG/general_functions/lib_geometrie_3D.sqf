@@ -66,6 +66,23 @@
  * @return la distance entre la position du rayon et la bounding box; 1E39 (infini) si pas d'intersection
  * @note le rayon doit être défini dans le repère de la bbox (worldToModel)
  */
+ /*
+  * Author: [Name of Author(s)]
+  * [Description]
+  *
+  * Arguments:
+  * 0: Argument Name <TYPE>
+  *
+  * Return Value:
+  * Return Name <TYPE>
+  *
+  * Example:
+  * ["example"] call ace_[module]_fnc_[functionName]
+  *
+  * Public: [Yes/No]
+  */
+#include "script_component.hpp"
+
 R3F_LOG_FNCT_3D_ray_intersect_bbox =
 {
 	private ["_ray_pos", "_ray_dir", "_bbox_min", "_bbox_max", "_inv_ray_x", "_inv_ray_y", "_inv_ray_z"];

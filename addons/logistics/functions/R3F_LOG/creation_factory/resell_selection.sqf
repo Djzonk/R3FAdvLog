@@ -9,6 +9,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ /*
+  * Author: [Name of Author(s)]
+  * [Description]
+  *
+  * Arguments:
+  * 0: Argument Name <TYPE>
+  *
+  * Return Value:
+  * Return Name <TYPE>
+  *
+  * Example:
+  * ["example"] call ace_[module]_fnc_[functionName]
+  *
+  * Public: [Yes/No]
+  */
+#include "script_component.hpp"
 
 if (R3F_LOG_mutex_local_lock) then
 {

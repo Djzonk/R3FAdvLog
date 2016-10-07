@@ -20,9 +20,8 @@ TRACE_1("params", _vehicle);
 
 private _type = typeOf _vehicle;
 
-if (getNumber (configFile >> "CfgVehicles" >> _type >> ace_cargo_hasCargo) != 1) exitWith {};
-
-//intigrate addExtra function
+if ((_object getVariable [QGVAR(hasCargo), getNumber (configFile >> "CfgVehicles" >> _type >> "ace_cargo_hasCargo")]) != 1) exitWith {};
+/*TODO: intigrate addExtra function*/
 
 // do nothing if the class is already initialized
 if (_type in GVAR(initializedVehicleClasses)) exitWith {};

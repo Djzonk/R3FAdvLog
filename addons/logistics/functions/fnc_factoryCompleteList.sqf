@@ -1,28 +1,18 @@
-/**
- * Enregistre les valeurs des champs avant fermeture de la bo?te de dialogue de l'usine de cr?ation.
- * ouvrir_factory.sqf s'en servira pour la pr?remplir ? l'ouverture
+/*
+ * Author: [Name of Author(s)]
+ * [Description]
  *
- * Copyright (C) 2014 Team ~R3F~
+ * Arguments:
+ * 0: Argument Name <TYPE>
  *
- * This program is free software under the terms of the GNU General Public License version 3.
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
  */
- /*
-  * Author: [Name of Author(s)]
-  * [Description]
-  *
-  * Arguments:
-  * 0: Argument Name <TYPE>
-  *
-  * Return Value:
-  * Return Name <TYPE>
-  *
-  * Example:
-  * ["example"] call ace_[module]_fnc_[functionName]
-  *
-  * Public: [Yes/No]
-  */
 #include "script_component.hpp"
 #include "\z\r3fadvlog\addons\logistics\dlgDefines.hpp"
 
@@ -42,9 +32,7 @@ _factory setVariable ["R3F_LOG_CF_mem_idx_object", 0];
 
 lbClear _ctrl_liste_objects;
 
-_classList = [_factory, _sel_categorie] call AdvLog_fnc_getClassList;
-
-if ((count _classList) > 0) then
+if (count (_factory getVariable "R3F_LOG_CF_cfgVehicles_par_categories") > 0) then
 {
 	// Insertion de chaque type d'objets disponibles dans la liste
 	{
@@ -55,7 +43,7 @@ if ((count _classList) > 0) then
 		_name = getText (_config >> "displayName");
 		_icone = getText (_config >> "icon");
 		//_cout = [_classe] call R3F_LOG_FNCT_determine_cost_creation;
-		_cout = ([_factory, _sel_categorie, _forEachIndex] call AdvLog_fnc_getCreationCosts);
+		_cout = ((_factory getVariable "R3F_LOG_CF_cfgVehicles_costs") select _sel_categorie) select _forEachIndex;
 
 		// Ic?ne par d?faut
 		if (_icone == "") then
@@ -92,7 +80,7 @@ if ((count _classList) > 0) then
 		_index = _ctrl_liste_objects lbAdd format ["%1 (%2 cred.)", _name, [_cout] call R3F_LOG_FNCT_format_number_of_integer_thousands];
 		_ctrl_liste_objects lbSetPicture [_index, _icone];
 		_ctrl_liste_objects lbSetData [_index, _classe];
-	} forEach _classList;
+	} forEach (_factory getVariable "R3F_LOG_CF_cfgVehicles_par_categories" select _sel_categorie);
 
 	// Ajout d'une ligne vide car l'affichage des listes de BIS est bugu? (dernier ?l?ment masqu?).....
 	_ctrl_liste_objects lbSetData [_ctrl_liste_objects lbAdd "", ""];

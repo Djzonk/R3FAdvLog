@@ -1,3 +1,19 @@
+/*
+ * Author: [Name of Author(s)]
+ * [Description]
+ *
+ * Arguments:
+ * 0: Argument Name <TYPE>
+ *
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
+ */
+#include "script_component.hpp"
 
 R3F_LOG_CFG_no_gravity_objects_can_be_set_in_height_over_ground = true;
 

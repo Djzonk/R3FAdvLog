@@ -1,4 +1,4 @@
-	/*
+/*
  * Modified by Sean Crowe, original script by Team ~R3F~
  * please see orginal work @ https://forums.bistudio.com/topic/170033-r3f-logistics/
  *
@@ -10,17 +10,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ /*
+  * Author: [Name of Author(s)]
+  * [Description]
+  *
+  * Arguments:
+  * 0: Argument Name <TYPE>
+  *
+  * Return Value:
+  * Return Name <TYPE>
+  *
+  * Example:
+  * ["example"] call ace_[module]_fnc_[functionName]
+  *
+  * Public: [Yes/No]
+  */
+#include "script_component.hpp"
 
-	// Initialise les listes vides avant que le config.sqf les concat?ne
-	R3F_LOG_CFG_can_tow = missionNamespace getVariable["R3F_LOG_CFG_can_tow", []];
-	R3F_LOG_CFG_cannot_etow = missionNamespace getVariable["R3F_LOG_CFG_cannot_etow", []];
-	R3F_LOG_CFG_can_be_towed = missionNamespace getVariable["R3F_LOG_CFG_can_be_towed", []];
-	R3F_LOG_CFG_can_transport_cargo = missionNamespace getVariable["R3F_LOG_CFG_can_transport_cargo", []];
-	R3F_LOG_CFG_can_be_transported_cargo = missionNamespace getVariable["R3F_LOG_CFG_can_be_transported_cargo", []];
-	R3F_LOG_CFG_can_be_moved_by_player = missionNamespace getVariable["R3F_LOG_CFG_can_be_moved_by_player", []];
-	R3F_LOG_CFG_can_be_pushed_by_player = missionNamespace getVariable["R3F_LOG_CFG_can_be_pushed_by_player", []];
-	R3F_LOG_CFG_build_costs = missionNamespace getVariable ["R3F_LOG_CFG_build_costs", []];
-
+	/*TODO: Replace with CBA Setting*/
 	if("\userconfig\r3f\config.sqf" call AdvLog_fnc_fileExists) then
 	{
 
@@ -30,36 +37,6 @@
 	{
 	    #include "config.sqf"
 	};
-
-	/**
-	 * LANGUAGE
-	 *
-	 * Automatic language selection according to the game language.
-	 * New languages can be easily added (read below).
-	 *
-	 * S?lection automatique de la langue en fonction de la langue du jeu.
-	 * De nouveaux langages peuvent facilement ?tre ajout?s (voir ci-dessous).
-	 */
-	R3F_LOG_CFG_language = switch (language) do
-	{
-		case "English":{"en"};
-		case "French":{"fr"};
-
-		// Feel free to create you own language file named "XX_strings_lang.sqf", where "XX" is the language code.
-		// Make a copy of an existing language file (e.g. en_strings_lang.sqf) and translate it.
-		// Then add a line with this syntax : case "YOUR_GAME_LANGUAGE":{"LANGUAGE_CODE"};
-		// For example :
-
-		//case "Czech":{"cz"}; // Not supported. Need your own "cz_strings_lang.sqf"
-		//case "Polish":{"pl"}; // Not supported. Need your own "pl_strings_lang.sqf"
-		//case "Portuguese":{"pt"}; // Not supported. Need your own "pt_strings_lang.sqf"
-		//case "YOUR_GAME_LANGUAGE":{"LANGUAGE_CODE"};  // Need your own "LANGUAGE_CODE_strings_lang.sqf"
-
-		default {"en"}; // If language is not supported, use English
-	};
-
-	// Chargement du fichier de langage
-	call compile preprocessFile format ["r3fAdvLog\R3F_LOG\%1_strings_lang.sqf", R3F_LOG_CFG_language];
 
 	/*
 	 * Reverse so user added stuff will override vanilla configs
@@ -72,7 +49,7 @@
 	reverse R3F_LOG_CFG_can_be_moved_by_player;
 	reverse R3F_LOG_CFG_build_costs;
 
-	// On passe tous les noms de classes en minuscules
+	// We spend all lowercase class names
 	{R3F_LOG_CFG_can_tow set [_forEachIndex, toLower _x];} forEach R3F_LOG_CFG_can_tow;
 	{R3F_LOG_CFG_cannot_etow set [_forEachIndex, toLower _x];} forEach R3F_LOG_CFG_cannot_etow;
 	{R3F_LOG_CFG_can_be_towed set [_forEachIndex, toLower _x];} forEach R3F_LOG_CFG_can_be_towed;

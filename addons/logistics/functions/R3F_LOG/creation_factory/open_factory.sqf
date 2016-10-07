@@ -10,8 +10,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#include "dlg_constantes.h"
+ /*
+  * Author: [Name of Author(s)]
+  * [Description]
+  *
+  * Arguments:
+  * 0: Argument Name <TYPE>
+  *
+  * Return Value:
+  * Return Name <TYPE>
+  *
+  * Example:
+  * ["example"] call ace_[module]_fnc_[functionName]
+  *
+  * Public: [Yes/No]
+  */
+#include "script_component.hpp"
+#include "\z\r3fadvlog\addons\logistics\dlgDefines.hpp"
 
 disableSerialization; // A cause des displayCtrl
 
@@ -53,7 +68,7 @@ while {!isNull _dlg_liste_objects} do
 {
 	_credits_factory = _factory getVariable "R3F_LOG_CF_credits";
 
-	// Activer le bouton de cr?ation que s'il y a assez de cr?dits
+	// Enable creation button only if enough credits
 	(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_btn_creer) ctrlEnable (_credits_factory != 0);
 
 	if (_credits_factory == -1) then
@@ -71,7 +86,7 @@ while {!isNull _dlg_liste_objects} do
 		//(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_infos) ctrlSetStructuredText ([lbData [R3F_LOG_IDC_dlg_LO_liste_objects, lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects]] call R3F_LOG_FNCT_format_features_logistics);
 	};
 
-	// Fermer la bo?te de dialogue si l'usine n'est plus accessible
+	// Close the dialog box if the factory is no longer accessible
 	if (!alive _factory || (_factory getVariable "R3F_LOG_CF_disabled")) then
 	{
 		closeDialog 0;
