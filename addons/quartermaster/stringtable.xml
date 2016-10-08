@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="R3FADVLOG">
-    <Package name="Blank">
-        <Key ID="STR_R3FADVLOG_BLANK_tag">
+    <Package name="Quartermaster">
+        <Key ID="STR_R3FADVLOG_Quartermaster_tag">
             <English>String</English>
         </Key>
     </Package>

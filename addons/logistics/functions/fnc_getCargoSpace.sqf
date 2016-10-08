@@ -27,21 +27,21 @@
   */
 #include "script_component.hpp"
 
-private ["_objects_charges", "_chargement_actuel", "_chargement_maxi"];
+private ["_objects_charges", "_currentLoad", "_maxLoad"];
 
-params [["_transporteur", objNull]];
+params [["_transporter", objNull]];
 
-_objects_charges = _transporteur getVariable ["R3F_LOG_objects_charges", []];
+_objects_charges = _transporter getVariable ["R3F_LOG_objects_charges", []];
 
 // Get amount of cargo in vehicle
-_chargement_actuel = 0;
+_currentLoad = 0;
 {
-	_chargement_actuel = _chargement_actuel + (([_x] call AdvLog_fnc_canBeTransported) param [1, 0]);
+	_currentLoad = _currentLoad + (([_x] call AdvLog_fnc_canBeTransported) param [1, 0]);
 
 } forEach _objects_charges;
 
 // Get maximum amount of cargo held
 
-_chargement_maxi = ([_transporteur] call AdvLog_fnc_canTransport) param [1, 0];
+_maxLoad = ([_transporter] call AdvLog_fnc_canTransport) param [1, 0];
 
-[_chargement_actuel, _chargement_maxi]
+[_currentLoad, _maxLoad]

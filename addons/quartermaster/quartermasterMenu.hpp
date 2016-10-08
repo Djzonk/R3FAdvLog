@@ -7,23 +7,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- /*
-  * Author: [Name of Author(s)]
-  * [Description]
-  *
-  * Arguments:
-  * 0: Argument Name <TYPE>
-  *
-  * Return Value:
-  * Return Name <TYPE>
-  *
-  * Example:
-  * ["example"] call ace_[module]_fnc_[functionName]
-  *
-  * Public: [Yes/No]
-  */
-#include "script_component.hpp"
-#include "\z\r3fadvlog\addons\logistics\dlgDefines.hpp"
+
+#include "dlgDefines.hpp"
 
 class AdvLog_FileCheckDisplay
 {
@@ -35,7 +20,7 @@ class AdvLog_FileCheckDisplay
 
 class R3F_LOG_dlg_liste_objects
 {
-	idd = R3F_LOG_IDD_dlg_liste_objects;
+	idd = 65861;
 	name = "R3F_LOG_dlg_liste_objects";
 	movingEnable = false;
 
@@ -56,7 +41,7 @@ class R3F_LOG_dlg_liste_objects
 		R3F_LOG_dlg_LO_infos
 	};
 
-	// D?finition des classes de base
+	// Definition of basic classes
 	class R3F_LOG_dlg_LO_texte
 	{
 		idc = -1;
@@ -208,7 +193,7 @@ class R3F_LOG_dlg_liste_objects
 			border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 		};
 	};
-	// FIN D?finition des classes de base
+	// End base class definition
 
 	class R3F_LOG_dlg_LO_titre_fond : R3F_LOG_dlg_LO_texte
 	{
@@ -219,7 +204,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_titre : R3F_LOG_dlg_LO_texte
 	{
-		idc = R3F_LOG_IDC_dlg_LO_titre;
+		idc = 65862;
 		x = safeZoneX + 0.005; w = 0.40;
 		y = safeZoneY + 0.005; h = 0.04;
 		sizeEx = 0.05;
@@ -228,7 +213,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_credits_restants : R3F_LOG_dlg_LO_texte
 	{
-		idc = R3F_LOG_IDC_dlg_LO_credits_restants;
+		idc = 65863;
 		x = safeZoneX + 0.005; w = 0.40;
 		y = safeZoneY + 0.045; h = 0.03;
 		sizeEx = 0.03;
@@ -237,7 +222,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_liste_categories : R3F_LOG_dlg_LO_liste
 	{
-		idc = R3F_LOG_IDC_dlg_LO_liste_categories;
+		idc = 65864;
 		type = CT_COMBO;
 		x = safeZoneX + 0.005; w = 0.40;
 		y = safeZoneY + 0.080; h = 0.045;
@@ -246,7 +231,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_liste_objects : R3F_LOG_dlg_LO_liste
 	{
-		idc = R3F_LOG_IDC_dlg_LO_liste_objects;
+		idc = 65865;
 		x = safeZoneX + 0.005; w = 0.40;
 		y = safeZoneY + 0.130; h = safeZoneH - 0.185;
 		onLBDblClick = "[] spawn R3F_LOG_FNCT_factory_create_object;";
@@ -255,7 +240,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_btn_creer : R3F_LOG_dlg_LO_btn
 	{
-		idc = R3F_LOG_IDC_dlg_LO_btn_creer;
+		idc = 65866;
 		x = safeZoneX + 0.005; y = safeZoneH + safeZoneY - 0.050;
 		text = "";
 		action = "[] spawn R3F_LOG_FNCT_factory_create_object;";
@@ -263,7 +248,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_btn_fermer : R3F_LOG_dlg_LO_btn
 	{
-		idc = R3F_LOG_IDC_dlg_LO_btn_fermer;
+		idc = 65867;
 		x = safeZoneX + 0.005 + 0.205; y = safeZoneH + safeZoneY - 0.050;
 		text = "";
 		action = "closeDialog 0;";
@@ -278,7 +263,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_infos_titre : R3F_LOG_dlg_LO_texte
 	{
-		idc = R3F_LOG_IDC_dlg_LO_infos_titre;
+		idc = 65868;
 		x = safeZoneX + safeZoneW - 0.005 - 0.35; w = 0.35;
 		y = safeZoneY + 0.005; h = 0.045;
 		sizeEx = 0.05;
@@ -287,7 +272,7 @@ class R3F_LOG_dlg_liste_objects
 
 	class R3F_LOG_dlg_LO_infos : R3F_LOG_dlg_LO_texte
 	{
-		idc = R3F_LOG_IDC_dlg_LO_infos;
+		idc = 65869;
 		type = CT_STRUCTURED_TEXT;
 		x = safeZoneX + safeZoneW - 0.005 - 0.35; w = 0.35;
 		y = safeZoneY + 0.065; h = 0.44;

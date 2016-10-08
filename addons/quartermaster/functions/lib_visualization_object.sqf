@@ -25,9 +25,7 @@
   */
 #include "script_component.hpp"
 
-/**
- * D?marre le mode de visualisation 3D
- */
+//Starts the 3D viewing mode
 R3F_LOG_VIS_FNCT_demarrer_visualisation = {
 	// Creating a camera
 	R3F_LOG_VIS_cam = "camera" camCreate ([[5000, 5000, 0]] call R3F_LOG_FNCT_3D_tirer_position_degagee_ciel);

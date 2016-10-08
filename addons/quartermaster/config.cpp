@@ -14,7 +14,7 @@ class CfgPatches {
     };
 };
 
-class CBA_Extended_EventHandlers_base;
 #include "CfgEventHandlers.hpp"
-#include "CfgVehicles.hpp"
-#include "cargoMenu.hpp"
+
+
+#include "quartermasterMenu.hpp"

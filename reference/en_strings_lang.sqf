@@ -80,8 +80,8 @@ STR_R3F_LOG_name_fonctionnalite_passif = "It can be :";
 STR_R3F_LOG_name_fonctionnalite_passif_deplace = "Moved by player";
 STR_R3F_LOG_name_fonctionnalite_passif_heliporte = "Lifted";*/
 /*TODO: MOVE string to towing component*/
-/*STR_R3F_LOG_name_fonctionnalite_passif_remorque = "Towed";
-STR_R3F_LOG_name_fonctionnalite_passif_transporte = "Transported";
+STR_R3F_LOG_name_fonctionnalite_passif_remorque = "Towed";
+/*STR_R3F_LOG_name_fonctionnalite_passif_transporte = "Transported";
 STR_R3F_LOG_name_fonctionnalite_passif_transporte_capacite = "load cost %1";
 STR_R3F_LOG_name_fonctionnalite_actif = "It can :";
 STR_R3F_LOG_name_fonctionnalite_actif_heliporte = "Lift";*/

@@ -1,6 +1,6 @@
 /*
  * Author: [Name of Author(s)]
- * [Description]
+ * Saves Creation Factory current catagorie and object selection
  *
  * Arguments:
  * 0: Argument Name <TYPE>

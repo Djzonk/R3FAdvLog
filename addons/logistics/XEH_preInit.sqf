@@ -12,6 +12,6 @@ GVAR(canTransport) = [];
 GVAR(canBeTransported) = [];
 GVAR(canBeMoved) = [];
 GVAR(canBePushed) = [];
-GVAR(cost) = []
+GVAR(cost) = [];
 
 ADDON = true;

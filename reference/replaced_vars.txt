@@ -1,0 +1,7 @@
+//Global
+R3F_LOG_player_moves_object = GVAR(movingObject)
+R3F_LOG_object_selectionne  = GVAR(selectedObject)
+R3F_LOG_CF_liste_factorys   = GVAR(factoryList)
+
+//Need to be replaced
+R3F_LOG_action_load_valid_selection

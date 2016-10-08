@@ -30,7 +30,9 @@
 #include "script_component.hpp"
 
 [
-	["Sand Bags", "Bunkers", "Statics"],
+	["Sand Bags",
+	"Bunkers",
+	"Statics"],
 
 	[
 		["Land_BagFence_Corner_F",

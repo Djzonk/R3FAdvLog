@@ -1,5 +1,5 @@
-#define COMPONENT towing
-#define COMPONENT_BEAUTIFIED Towing
+#define COMPONENT quartermaster
+#define COMPONENT_BEAUTIFIED Quartermaster
 #include "\z\r3fadvlog\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -7,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_Towing
+#ifdef DEBUG_ENABLED_Quartermaster
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_Towing
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_Towing
+#ifdef DEBUG_SETTINGS_Quartermaster
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_Quartermaster
 #endif
 
 #include "\z\r3fadvlog\addons\main\script_macros.hpp"
