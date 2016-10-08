@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project name="R3FADVLOG">
+    <Package name="Cargo">
+        <Key ID="STR_R3FADVLOG_Cargo_Load">
+            <English>Load in the vehicle</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Release">
+            <English>Release ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Slope">
+            <English>Adjust to the slope</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Ground">
+            <English>Adjust to the ground</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Horizontal">
+            <English>Adjust horizontally</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Turn">
+            <English>Turn left/right (X / C keys)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Distance">
+            <English>Closer/further (F / R keys)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move_Getin">
+            <English>You can't get in a vehicle while you're carrying this object!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_In">
+            <English>Load ""%1"" in...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Select">
+            <English>... load in ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Destination">
+            <English>Now select the destination for ""%1""...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Inprogress">
+            <English>Loading in progress...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Loadedin">
+            <English>The object ""%1"" has been loaded in ""%2"".</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Nospace">
+            <English>There is not enough space for this object in this vehicle !</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unload_Content">
+            <English>View the vehicle's content</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unload_Progress">
+            <English>Unloading in progress...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unload_Done">
+            <English>The object ""%1"" has been unloaded from the vehicle.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unload_Already">
+            <English>The object has already been unloaded!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unload_Immovable">
+            <English>Once released, this object will no more be movable manually.&lt;br/&gt;Do you confirm the action?</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_Operation">
+            <English>The current operation isn't finished!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_Occupied">
+            <English>There is a player in the object ""%1"" !</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_Intransit">
+            <English>The object ""%1"" is already in transit!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_Tofar">
+            <English>Impossible because the object ""%1"" is too far!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Title">
+            <English>Vehicle's content</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Capacity">
+            <English>Loading : %1/%2</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Unload">
+            <English>UNLOAD</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Cancel">
+            <English>CANCEL</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Properties">
+            <English>Properties</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Side">
+            <English>Side</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Seats">
+            <English>Seating</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Canbe">
+            <English>It can be :</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Moved">
+            <English>Moved by player</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Lifted">
+            <English>Lifted</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Transported">
+            <English>Transported</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Size">
+            <English>load cost %1</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Itcan">
+            <English>It can :</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Lift">
+            <English>Lift</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Transport">
+            <English>Transport</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Functionality_Maxload">
+            <English>"max load %1</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unlock_Unlocking">
+            <English>Unlocking... (%1)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unlock_Cancled">
+            <English>Unlock canceled ! Hold the aiming of the object during the countdown.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unlock_Unlocked">
+            <English>Object unlocked.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unlock">
+            <English>Unlock ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Unlock_Impossible">
+            <English>Cant Unlock</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Move">
+            <English>Take ""%1""</English>
+        </Key>
+    </Package>
+</Project>

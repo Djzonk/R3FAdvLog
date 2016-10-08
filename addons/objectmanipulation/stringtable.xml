@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project name="R3FADVLOG">
+    <Package name="ObjectManipulation">
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_tag">
+            <English>String</English>
+        </Key>
+    </Package>
+</Project>

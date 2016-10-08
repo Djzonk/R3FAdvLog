@@ -1,8 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="R3FADVLOG">
     <Package name="Quartermaster">
-        <Key ID="STR_R3FADVLOG_Quartermaster_tag">
-            <English>String</English>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Open">
+            <English>Open the Quartermaster</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Inprogress">
+            <English>Creation in progress...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Created">
+            <English>The object ""%1"" has been created.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Notenough">
+            <English>The Quartermaster has not enough credits to create this object.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Resell">
+            <English>Send back ""%1"" to the Quartermaster</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Resell2">
+            <English>Send back to the Quartermaster</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Select">
+            <English>... send back to the Quartermaster</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Reselling">
+            <English>Sending back to the Quartermaster...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Resold">
+            <English>The object ""%1"" has been sent back to the Quartermaster.</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Cantresell">
+            <English>You can't sent it back while its cargo content is not empty!</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Fdlg_Title">
+            <English>Quartermaster</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Fdlg_Credits">
+            <English>Remaining credits : %1</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Fdlg_Create">
+            <English>CREATE</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Quartermaster_Fdlg_Cancel">
+            <English>CANCEL</English>
         </Key>
     </Package>
 </Project>

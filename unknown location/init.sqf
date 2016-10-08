@@ -1,6 +1,6 @@
 
 
-execVM "r3fAdvLog\R3F_LOG\init.sqf";
+//execVM "r3fAdvLog\R3F_LOG\init.sqf";
 
 // Turn off ACE cargo
 

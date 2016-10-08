@@ -1,5 +1,5 @@
-#define COMPONENT logistics
-#define COMPONENT_BEAUTIFIED Logistics
+#define COMPONENT objectmanipulation
+#define COMPONENT_BEAUTIFIED ObjectManipulation
 #include "\z\r3fadvlog\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -7,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_Logistics
+#ifdef DEBUG_ENABLED_ObjectManipulation
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_Logistics
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_Logistics
+#ifdef DEBUG_SETTINGS_ObjectManipulation
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_ObjectManipulation
 #endif
 
 #include "\z\r3fadvlog\addons\main\script_macros.hpp"
