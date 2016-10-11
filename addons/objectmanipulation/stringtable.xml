@@ -1,8 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="R3FADVLOG">
     <Package name="ObjectManipulation">
-        <Key ID="STR_R3FADVLOG_ObjectManipulation_tag">
-            <English>String</English>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Move">
+            <English>Move ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Push">
+            <English>Push ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Release">
+            <English>Release ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Building">
+            <English>Building ""%1""</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Aborted">
+            <English>Aborted</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Slope">
+            <English>Adjust to the slope</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Ground">
+            <English>Adjust to the ground</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Horizontal">
+            <English>Adjust horizontally</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Turn">
+            <English>Turn left/right (X / C keys)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Distance">
+            <English>Closer/further (F / R keys)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_ObjectManipulation_Getin">
+            <English>You can't get in a vehicle while you're carrying this object!</English>
         </Key>
     </Package>
 </Project>

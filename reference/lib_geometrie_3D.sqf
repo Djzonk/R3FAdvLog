@@ -66,25 +66,8 @@
  * @return la distance entre la position du rayon et la bounding box; 1E39 (infini) si pas d'intersection
  * @note le rayon doit être défini dans le repère de la bbox (worldToModel)
  */
- /*
-  * Author: [Name of Author(s)]
-  * [Description]
-  *
-  * Arguments:
-  * 0: Argument Name <TYPE>
-  *
-  * Return Value:
-  * Return Name <TYPE>
-  *
-  * Example:
-  * ["example"] call ace_[module]_fnc_[functionName]
-  *
-  * Public: [Yes/No]
-  */
-#include "script_component.hpp"
 
-R3F_LOG_FNCT_3D_ray_intersect_bbox =
-{
+R3F_LOG_FNCT_3D_ray_intersect_bbox = {
 	private ["_ray_pos", "_ray_dir", "_bbox_min", "_bbox_max", "_inv_ray_x", "_inv_ray_y", "_inv_ray_z"];
 	private ["_tmin", "_tmax", "_tymin", "_tymax", "_tzmin", "_tzmax"];
 
@@ -100,24 +83,18 @@ R3F_LOG_FNCT_3D_ray_intersect_bbox =
 
 	/* Pour chaque axe, on calcule la distance d'intersection du rayon avec les deux plans de la bounding box */
 
-	if (_inv_ray_x < 0) then
-	{
+	if (_inv_ray_x < 0) then {
 		_tmax = ((_bbox_min select 0) - (_ray_pos select 0)) * _inv_ray_x;
 		_tmin = ((_bbox_max select 0) - (_ray_pos select 0)) * _inv_ray_x;
-	}
-	else
-	{
+	} else {
 		_tmin = ((_bbox_min select 0) - (_ray_pos select 0)) * _inv_ray_x;
 		_tmax = ((_bbox_max select 0) - (_ray_pos select 0)) * _inv_ray_x;
 	};
 
-	if (_inv_ray_y < 0) then
-	{
+	if (_inv_ray_y < 0) then {
 		_tymax = ((_bbox_min select 1) - (_ray_pos select 1)) * _inv_ray_y;
 		_tymin = ((_bbox_max select 1) - (_ray_pos select 1)) * _inv_ray_y;
-	}
-	else
-	{
+	} else {
 		_tymin = ((_bbox_min select 1) - (_ray_pos select 1)) * _inv_ray_y;
 		_tymax = ((_bbox_max select 1) - (_ray_pos select 1)) * _inv_ray_y;
 	};
@@ -127,13 +104,10 @@ R3F_LOG_FNCT_3D_ray_intersect_bbox =
 	_tmin = _tmin max _tymin;
 	_tmax = _tmax min _tymax;
 
-	if (_inv_ray_z < 0) then
-	{
+	if (_inv_ray_z < 0) then {
 		_tzmax = ((_bbox_min select 2) - (_ray_pos select 2)) * _inv_ray_z;
 		_tzmin = ((_bbox_max select 2) - (_ray_pos select 2)) * _inv_ray_z;
-	}
-	else
-	{
+	} else {
 		_tzmin = ((_bbox_min select 2) - (_ray_pos select 2)) * _inv_ray_z;
 		_tzmax = ((_bbox_max select 2) - (_ray_pos select 2)) * _inv_ray_z;
 	};
@@ -149,14 +123,13 @@ R3F_LOG_FNCT_3D_ray_intersect_bbox =
 };
 
 /**
- * Calcule l'intersection d'un rayon avec un objet
+ * Compute the intersection of a ray with an object
  * @param 0 position du rayon (dans le repère worldATL)
  * @param 1 direction du rayon (dans le repère world)
  * @param 2 l'objet pour lequel calculer l'intersection de bounding box
  * @return la distance entre la position du rayon et la bounding box; 1E39 (infini) si pas d'intersection
  */
-R3F_LOG_FNCT_3D_ray_intersect_bbox_obj =
-{
+R3F_LOG_FNCT_3D_ray_intersect_bbox_obj = {
 	private ["_ray_pos", "_ray_dir", "_object"];
 
 	_ray_pos = _this select 0;
@@ -177,8 +150,7 @@ R3F_LOG_FNCT_3D_ray_intersect_bbox_obj =
  * @param 0 l'objet pour lequel on souhaite calculer l'intersection de bounding box
  * @return la distance entre la caméra du joueur et la bounding box; 1E39 (infini) si pas d'intersection
  */
-R3F_LOG_FNCT_3D_cam_intersect_bbox_obj =
-{
+R3F_LOG_FNCT_3D_cam_intersect_bbox_obj = {
 	private ["_object", "_pos_cam", "_pos_devant", "_dir_cam"];
 
 	_object = _this select 0;
@@ -200,8 +172,7 @@ R3F_LOG_FNCT_3D_cam_intersect_bbox_obj =
  * @return true si la position se trouve à l'intérieur de la bounding box, false sinon
  * @note la position doit être défini dans le repère de la bbox (worldToModel)
  */
-R3F_LOG_FNCT_3D_pos_est_dans_bbox =
-{
+R3F_LOG_FNCT_3D_pos_est_dans_bbox = {
 	private ["_pos", "_bbox_min", "_bbox_max"];
 
 	_pos = _this select 0;
@@ -220,8 +191,7 @@ R3F_LOG_FNCT_3D_pos_est_dans_bbox =
  * @param 2 position max de la bounding box
  * @return distance du segment le plus court reliant la position à la bounding box
  */
-R3F_LOG_FNCT_3D_distance_min_pos_bbox =
-{
+R3F_LOG_FNCT_3D_distance_min_pos_bbox = {
 	private ["_pos", "_bbox_min", "_bbox_max", "_pos_intersect_min_bbox"];
 
 	_pos = _this select 0;
@@ -248,8 +218,7 @@ R3F_LOG_FNCT_3D_distance_min_pos_bbox =
  * @note les deux bounding sphere doivent être définies dans le même repère (worldASL ou model)
  * @note pour effecteur un test entre un point et une sphere, définir un rayon de 0
  */
-R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_sphere =
-{
+R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_sphere = {
 	private ["_pos1", "_rayon1", "_pos2", "_rayon2"];
 
 	_pos1 = _this select 0;
@@ -266,8 +235,7 @@ R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_sphere =
  * @param 1 le deuxième objet pour lequel calculer l'intersection de bounding sphere
  * @return true s'il y a intersection entre les bounding sphere des deux objets, false sinon
  */
-R3F_LOG_FNCT_3D_intersect_bounding_sphere_objs =
-{
+R3F_LOG_FNCT_3D_intersect_bounding_sphere_objs = {
 	private ["_object1", "_object2"];
 
 	_object1 = _this select 0;
@@ -296,8 +264,7 @@ R3F_LOG_FNCT_3D_intersect_bounding_sphere_objs =
  * @param 3 position max de la bounding box
  * @return true s'il y a intersection entre la bounding box et la bounding sphere, false sinon
  */
-R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_box =
-{
+R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_box = {
 	private ["_pos_bsphere", "_rayon_bsphere", "_bbox_min", "_bbox_max", "_pos_intersect_min_bbox"];
 
 	// Utilisation "inline" de la fonction R3F_LOG_FNCT_3D_distance_min_pos_bbox
@@ -328,8 +295,7 @@ R3F_LOG_FNCT_3D_bounding_sphere_intersect_bounding_box =
  * @note les objets peuvent être d'un type ne correspondant pas aux bounding box
  * @note cela permet par exemple d'utiliser une logique de jeu, pour un calcul à priori
  */
-R3F_LOG_FNCT_3D_bbox_intersect_bbox =
-{
+R3F_LOG_FNCT_3D_bbox_intersect_bbox = {
 	private ["_object1", "_object2", "_bbox1_min", "_bbox1_max", "_bbox2_min", "_bbox2_max", "_intersect", "_coins", "_rayons"];
 
 	_object1 = _this select 0;
@@ -421,12 +387,9 @@ R3F_LOG_FNCT_3D_bbox_intersect_bbox =
 	// Test d'intersection de chaque rayon avec la bounding box de l'objet1
 	{
 		// Si la dimension de la bbox, dans l'axe concerné, est nulle, on fait un calcul basé sur la position (rayon de longueur nulle)
-		if (_x select 2 == 0) then
-		{
+		if (_x select 2 == 0) then {
 			if ([_x select 0, _bbox1_min, _bbox1_max] call R3F_LOG_FNCT_3D_pos_est_dans_bbox) exitWith {_intersect = true;};
-		}
-		else
-		{
+		} else {
 			if ([
 				_x select 0,
 				((_x select 1) vectorDiff (_x select 0)) vectorMultiply (1 / (_x select 2)), // Direction rayon
@@ -445,8 +408,7 @@ R3F_LOG_FNCT_3D_bbox_intersect_bbox =
  * @param 1 le deuxième objet pour lequel calculer l'intersection
  * @return true s'il y a intersection entre les bounding box des deux objets, false sinon
  */
-R3F_LOG_FNCT_3D_bbox_intersect_bbox_objs =
-{
+R3F_LOG_FNCT_3D_bbox_intersect_bbox_objs = {
 	private ["_object1", "_object2"];
 
 	_object1 = _this select 0;
@@ -472,8 +434,7 @@ R3F_LOG_FNCT_3D_bbox_intersect_bbox_objs =
  *
  * @note WARNING WORK IN PROGRESS FUNCTION, NOT FOR USE !!! TODO FINALIZE IT
  */
-R3F_LOG_FNCT_3D_mesh_collision_objs =
-{
+R3F_LOG_FNCT_3D_mesh_collision_objs = {
 	private ["_object1", "_object2", "_object_test1", "_object_test2", "_force_test_mesh", "_pos_test", "_num_frame_start", "_collision"];
 
 	_object1 = _this select 0;
@@ -533,17 +494,19 @@ R3F_LOG_FNCT_3D_mesh_collision_objs =
 };
 
 /**
- * Retourne une position dégagée dans le ciel
+ * Retourne une position dégagée dans le ciel En:Return a clear position in the sky
  * @param 0 (optionnel) offset 3D du cube dans lequel chercher une position (défaut [0,0,0])
+ * En:@param 0 (optional) offset 3D cube in which to look for a location (default [0,0,0])
  * @return position dégagée (sphère de 50m de rayon) dans le ciel
+ * @return disengaged position (sphere of radius 50 m) into the sky
  */
-R3F_LOG_FNCT_3D_tirer_position_degagee_ciel =
-{
+R3F_LOG_FNCT_3D_tirer_position_degagee_ciel = {
 	private ["_offset", "_nb_tirages", "_position_degagee"];
 
 	_offset = if (count _this > 0) then {_this select 0} else {[0,0,0]};
 
 	// Trouver une position dégagée (sphère de 50m de rayon) dans le ciel
+	// En: Find an open position (sphere of radius 50 m) into the sky
 	for [
 		{
 			_position_degagee = [random 3000, random 3000, 10000 + (random 20000)] vectorAdd _offset;
@@ -571,8 +534,7 @@ R3F_LOG_FNCT_3D_tirer_position_degagee_ciel =
  * @return position dégagée du rayon indiqué, au sein de la zone de recherche, ou un tableau vide en cas d'échec
  * @note cette fonction pallie au manque de fiabilité des commandes findEmptyPosition et isFlatEmpty concernant les collisions
  */
-R3F_LOG_FNCT_3D_tirer_position_degagee_sol =
-{
+R3F_LOG_FNCT_3D_tirer_position_degagee_sol = {
 	private ["_rayon_degage", "_pos_centre", "_rayon_max", "_nb_tirages_max", "_eau_autorise", "_rayon_max_carre"];
 	private ["_nb_tirages", "_objects_genants", "_position_degagee", "_rayon_curr", "_angle_curr", "_intersect"];
 
@@ -637,15 +599,13 @@ R3F_LOG_FNCT_3D_tirer_position_degagee_sol =
  * Calcule la distance entre le joueur et la bbox de l'objet pointé
  * @return tableau avec en premier élément l'objet pointé (ou objNull), et en deuxième élément la distance entre le joueur et la bbox de l'objet pointé
  */
-R3F_LOG_FNCT_3D_cursorTarget_distance_bbox =
-{
+R3F_LOG_FNCT_3D_cursorTarget_distance_bbox = {
 	private ["_object", "_player"];
 
 	_object = cursorTarget;
 	_player = player;
 
-	if (!isNull _object && !isNull _player && alive _player && cameraOn == _player) then
-	{
+	if (!isNull _object && !isNull _player && alive _player && cameraOn == _player) then {
 		[
 			_object,
 			[
@@ -654,9 +614,7 @@ R3F_LOG_FNCT_3D_cursorTarget_distance_bbox =
 				boundingBoxReal _object select 1
 			] call R3F_LOG_FNCT_3D_distance_min_pos_bbox
 		]
-	}
-	else
-	{
+	} else {
 		[objNull, 1E39]
 	};
 };
@@ -683,12 +641,10 @@ R3F_LOG_FNCT_3D_cursorTarget_virtuel =
 
 	if (!isNull (_cursorTarget_distance select 0) &&
 		{!((_cursorTarget_distance select 0) in _liste_ingores) && (_cursorTarget_distance select 1) <= _distance_max}
-	) then
-	{
+	   )
+	then {
 		_object_pointe = cursorTarget;
-	}
-	else
-	{
+	} else {
 		private ["_vec_dir_unite_world", "_pos_unite_world", "_liste_objects"];
 
 		_vec_dir_unite_world = (ATLtoASL positionCameraToWorld [0, 0, 1]) vectorDiff (ATLtoASL positionCameraToWorld [0,0,0]);
@@ -723,8 +679,7 @@ R3F_LOG_FNCT_3D_cursorTarget_virtuel =
  * @param 1 position max de la bounding box
  * @return tableau contenant la position des huit coins d'une bounding box dans le repère du modèle
  */
-R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_model =
-{
+R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_model = {
 	private ["_bbox_min", "_bbox_max"];
 
 	_bbox_min = _this select 0;
@@ -747,8 +702,7 @@ R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_model =
  * @param 0 l'objet pour lequel calculer les huit coins de la bbox dans le repère world
  * @return tableau contenant la position des huit coins d'une bounding box dans le repère world
  */
-R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_world =
-{
+R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_world = {
 	private ["_object", "_bbox_min", "_bbox_max"];
 
 	_object = _this select 0;
@@ -775,8 +729,7 @@ R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_world =
  * @return la liste des objets présents dans un périmètre et pouvant avoir une collision physique
  * @note la liste des objets retournées contient également les éléments de terrain tels que les rochers et les arbres, murs, bâtiments, ...
  */
-R3F_LOG_FNCT_3D_get_objects_genants_rayon =
-{
+R3F_LOG_FNCT_3D_get_objects_genants_rayon = {
 	private ["_pos_centre", "_rayon", "_obj_proches", "_elements_terrain", "_bbox_dim", "_volume", "_e"];
 
 	_pos_centre = _this select 0;
@@ -789,11 +742,9 @@ R3F_LOG_FNCT_3D_get_objects_genants_rayon =
 		_volume = (_bbox_dim select 0) * (_bbox_dim select 1) * (_bbox_dim select 2);
 
 		// Filtre : volume suffisamment important
-		if (_volume > 0.08) then
-		{
+		if (_volume > 0.08) then {
 			// Filtre : insectes et vie ambiante
-			if !(typeOf _x in ["Snake_random_F", "ButterFly_random", "HouseFly", "HoneyBee", "Mosquito"]) then
-			{
+			if !(typeOf _x in ["Snake_random_F", "ButterFly_random", "HouseFly", "HoneyBee", "Mosquito"]) then {
 				_obj_proches pushBack _x;
 			};
 		};
@@ -806,20 +757,16 @@ R3F_LOG_FNCT_3D_get_objects_genants_rayon =
 		_e = _x;
 
 		// Filtre : objet immobile
-		if (vectorMagnitude velocity _e == 0) then
-		{
+		if (vectorMagnitude velocity _e == 0) then {
 			_bbox_dim = (boundingBoxReal _e select 1) vectorDiff (boundingBoxReal _e select 0);
 			_volume = (_bbox_dim select 0) * (_bbox_dim select 1) * (_bbox_dim select 2);
 
 			// Filtre : volume suffisamment important
-			if (_volume > 0.08) then
-			{
+			if (_volume > 0.08) then {
 				// Filtre : insectes et vie ambiante
-				if !(typeOf _x in ["Snake_random_F", "ButterFly_random", "HouseFly", "HoneyBee", "Mosquito"]) then
-				{
+				if !(typeOf _x in ["Snake_random_F", "ButterFly_random", "HouseFly", "HoneyBee", "Mosquito"]) then {
 					// Filtre : ignorer les segments de routes
-					if ({_x == _e} count (getPos _e nearRoads 1) == 0) then
-					{
+					if ({_x == _e} count (getPos _e nearRoads 1) == 0) then {
 						_elements_terrain pushBack _e;
 					};
 				};
@@ -855,8 +802,7 @@ R3F_LOG_FNCT_3D_get_bounding_box_depuis_classname =
  * @param 0 l'objet pour lequel calculer les hauteur de terrains min et max
  * @return tableau contenant respectivement las hauteurs de terrain ASL minimal et maximal
  */
-R3F_LOG_FNCT_3D_get_hauteur_terrain_min_max_object =
-{
+R3F_LOG_FNCT_3D_get_hauteur_terrain_min_max_object = {
 	private ["_object", "_x1", "_x2", "_y1", "_y2", "_z", "_hauteur_min", "_hauteur_max", "_hauteur"];
 
 	_object = _this select 0;
@@ -888,8 +834,7 @@ R3F_LOG_FNCT_3D_get_hauteur_terrain_min_max_object =
  * @param 1 la deuxième matrice 3x3 à multiplier
  * @return la matrice 3x3 résultant de la multiplication
  */
-R3F_LOG_FNCT_3D_mult_mat3x3 =
-{
+R3F_LOG_FNCT_3D_mult_mat3x3 = {
 	private ["_a", "_b"];
 
 	_a = _this select 0;
@@ -920,8 +865,7 @@ R3F_LOG_FNCT_3D_mult_mat3x3 =
  * @param 1 le matrice 3x3 avec laquelle multiplier le vecteur
  * @return le vecteur 3D résultant de la multiplication
  */
-R3F_LOG_FNCT_3D_mult_vec_mat3x3 =
-{
+R3F_LOG_FNCT_3D_mult_vec_mat3x3 = {
 	private ["_vec", "_mat"];
 
 	_vec = _this select 0;
@@ -939,8 +883,7 @@ R3F_LOG_FNCT_3D_mult_vec_mat3x3 =
  * @param l'angle de rotation en degrés
  * @return la matrice 3x3 de rotation en roulis (roll) pour un angle donné
  */
-R3F_LOG_FNCT_3D_mat_rot_roll =
-{
+R3F_LOG_FNCT_3D_mat_rot_roll = {
 	[
 		[cos _this, 0, sin _this],
 		[0, 1, 0],
@@ -953,8 +896,7 @@ R3F_LOG_FNCT_3D_mat_rot_roll =
  * @param l'angle de rotation en degrés
  * @return la matrice 3x3 de rotation en tangage (pitch) pour un angle donné
  */
-R3F_LOG_FNCT_3D_mat_rot_pitch =
-{
+R3F_LOG_FNCT_3D_mat_rot_pitch = {
 	[
 		[1, 0, 0],
 		[0, cos _this, -sin _this],
@@ -967,8 +909,7 @@ R3F_LOG_FNCT_3D_mat_rot_pitch =
  * @param l'angle de rotation en degrés
  * @return la matrice 3x3 de rotation en lacet (yaw) pour un angle donné
  */
-R3F_LOG_FNCT_3D_mat_rot_yaw =
-{
+R3F_LOG_FNCT_3D_mat_rot_yaw = {
 	[
 		[cos _this, -sin _this, 0],
 		[sin _this, cos _this, 0],
@@ -984,16 +925,14 @@ R3F_LOG_FNCT_3D_mat_rot_yaw =
  * @note les objets peuvent être d'un type ne correspondant pas aux bounding box
  * @note cela permet par exemple d'utiliser une logique de jeu, pour un calcul à priori
  */
-R3F_LOG_FNCT_3D_tracer_bbox =
-{
+R3F_LOG_FNCT_3D_tracer_bbox = {
 	private ["_object", "_bbox_min", "_bbox_max", "_coins", "_couleur"];
 
 	_object = _this select 0;
 	_bbox_min = _this select 1;
 	_bbox_max = _this select 2;
 
-	if !(isNull _object) then
-	{
+	if !(isNull _object) then {
 		// Composition des coordonnées des 8 coins, dans l'espace world
 		_coins = [_object] call R3F_LOG_FNCT_3D_get_huit_coins_bounding_box_world;
 
@@ -1022,14 +961,12 @@ R3F_LOG_FNCT_3D_tracer_bbox =
  * Trace dans le jeu la bounding box de l'objet passé en paramètre
  * @param 0 l'objet pour lequel tracer la bounding box
  */
-R3F_LOG_FNCT_3D_tracer_bbox_obj =
-{
+R3F_LOG_FNCT_3D_tracer_bbox_obj = {
 	private ["_object"];
 
 	_object = _this select 0;
 
-	if !(isNull _object) then
-	{
+	if !(isNull _object) then {
 		[_object, boundingBoxReal _object select 0, boundingBoxReal _object select 1] call R3F_LOG_FNCT_3D_tracer_bbox;
 	};
 };
@@ -1040,14 +977,12 @@ R3F_LOG_FNCT_3D_tracer_bbox_obj =
 if (isNil "R3F_LOG_player_moves_object") then {R3F_LOG_player_moves_object = objNull};
 addMissionEventHandler ["Draw3D",
 {
-	if !(isNull player) then
-	{
+	if !(isNull player) then {
 		private ["_object"];
 
 		_object = cursorTarget;
 
-		if (!isNull R3F_LOG_player_moves_object) then
-		{
+		if (!isNull R3F_LOG_player_moves_object) then {
 			//[R3F_LOG_player_moves_object] call R3F_LOG_FNCT_3D_tracer_bbox_obj;
 
 			{
@@ -1058,29 +993,22 @@ addMissionEventHandler ["Draw3D",
 					_x,
 					boundingBoxReal _x select 0,
 					boundingBoxReal _x select 1
-				] call R3F_LOG_FNCT_3D_bbox_intersect_bbox) then
-				{
+				] call R3F_LOG_FNCT_3D_bbox_intersect_bbox) then {
 					//systemChat format ["COLLISION BBOX %1 @ %2", typeOf _x, time];
 					[_x] call R3F_LOG_FNCT_3D_tracer_bbox_obj;
 				};
 			} forEach (nearestObjects [R3F_LOG_player_moves_object, ["All"], 15] - [player, R3F_LOG_player_moves_object]);
-		}
-		else
-		{
-			if (false && !isNull _object) then
-			{
+		} else {
+			if (false && !isNull _object) then {
 				hintSilent format ["%1 | %2 | %3", typeOf _object, [_object] call R3F_LOG_FNCT_3D_cam_intersect_bbox_obj,
 					[_object worldToModel (positionCameraToWorld [0, 0, 0]), boundingBoxReal _object select 0, boundingBoxReal _object select 1] call R3F_LOG_FNCT_3D_pos_est_dans_bbox];
 
 				[_object] call R3F_LOG_FNCT_3D_tracer_bbox_obj;
-			}
-			else
-			{
+			} else {
 				_cursorTarget_distance = call R3F_LOG_FNCT_3D_cursorTarget_distance_bbox;
 				hintSilent format ["%1 | %2", typeOf (_cursorTarget_distance select 0), _cursorTarget_distance select 1];
 
-				if !(isNull (_cursorTarget_distance select 0)) then
-				{
+				if !(isNull (_cursorTarget_distance select 0)) then {
 					[_cursorTarget_distance select 0] call R3F_LOG_FNCT_3D_tracer_bbox_obj;
 				};
 			};

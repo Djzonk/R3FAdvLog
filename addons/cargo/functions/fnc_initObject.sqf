@@ -20,21 +20,17 @@ _type = typeOf _object;
 TRACE_2("params",_object,_type);
 
 // do nothing if the class is already initialized
-if (_type in GVAR(initializedItemClasses)) exitWith {};
-GVAR(initializedItemClasses) pushBack _type;
+if (_type in GVAR(initializedItemClasses_init)) exitWith {};
+GVAR(initializedItemClasses_init) pushBack _type;
 
-_name = getText (_config >> "displayName");
+//Turn off ace cago
+_object setVariable ['ace_cargo_space', 0];
+_object setVariable ['ace_cargo_canLoad', 0];
 
-//Load Action
-    /*TODO: Rework
-      add easy way for user to determin loadable objects
-      use below line as condition
-      if ((_object getVariable [QGVAR(canLoad), getNumber (configFile >> "CfgVehicles" >> _type >> "ace_cargo_canLoad")]) != 1) exitWith {};
-    */
-if (([_object] call FUNC(canBeTransported)) select 0) then {
+if (GETVAR(_object,QGVAR(canBeTransported), false) == true) then {
+    [_object, true] call FUNC(setTransportable);
+};
 
-    _load = [QGVAR(load), format [localize LSTRING(Load_In), _name],"z\ace\addons\cargo\UI\Icon_load.paa",{_this call FUNC(select);},{!R3F_LOG_mutex_local_lock}] call ace_interact_menu_fnc_createAction;
-
-    [_object, 0, ["ACE_MainActions"], _load] call ace_interact_menu_fnc_addActionToObject;
-
+if (GETVAR(_object,QGVAR(canTransport), false) == true) then {
+    [_object, true] call FUNC(setTransport);
 };

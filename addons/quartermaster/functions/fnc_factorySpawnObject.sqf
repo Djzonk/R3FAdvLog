@@ -115,7 +115,7 @@ else
 						(findDisplay R3F_LOG_IDD_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_btn_fermer) ctrlEnable false;
 
 						// M?moriser que cet objet a ?t? cr?? depuis une usis
-						_object setVariable ["R3F_LOG_CF_depuis_factory", true, true];
+						_object setVariable [QGVAR(fromQuartermaster), true, true];
 						_object setVariable ["R3F_LOG_CF_date_created", date, true];
 						_object setVariable ["R3F_LOG_CF_cost", _cout, true];
 						//[_object, player] call R3F_LOG_FNCT_define_lock_owner;

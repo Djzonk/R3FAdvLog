@@ -1,35 +1,21 @@
 /*
- * Author: [Name of Author(s)]
- * [Description]
+ * Author: DjZonk
+ * Determines if a Object can be pushed by the player
  *
  * Arguments:
- * 0: Argument Name <TYPE>
+ * 0: target object <OBJECT>
  *
  * Return Value:
- * Return Name <TYPE>
+ * IF can push object <BOOL>
  *
  * Example:
  * ["example"] call ace_[module]_fnc_[functionName]
  *
- * Public: [Yes/No]
+ * Public: No
  */
 #include "script_component.hpp"
 
-private ["_can_be_moved_by_player"];
+params ["_target"];
 
-params [["_object", objNull]];
-
-if (!(missionNamespace getVariable ["AdvLog_Endabled", true])) exitWith {false};
-
-if (isNull _object) exitWith {false};
-
-_class_heritage = [_object] call AdvLog_fnc_getObjectHeritage;
-
-// Can object be moved by player?
-_can_be_moved_by_push = false;
-{
-	if (_x in R3F_LOG_CFG_can_be_pushed_by_player) exitWith {_can_be_moved_by_push = true;};
-} forEach _class_heritage;
-
-
-_can_be_moved_by_push
+alive _target &&
+{vectorMagnitude velocity _target < 3}

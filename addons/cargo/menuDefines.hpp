@@ -74,3 +74,136 @@
 // Listbox styles
 #define LB_TEXTURES       0x10
 #define LB_MULTI          0x20
+
+// Base class defines
+class R3FAdvLog_Cargo_Text {
+    idc = -1;
+    type = CT_STATIC;
+    style = ST_LEFT;
+    x = 0.0;
+    y = 0.0;
+    w = 0.3;
+    h = 0.03;
+    sizeEx = 0.023;
+    colorBackground[] = {0,0,0,0};
+    colorText[] = {1,1,1,1};
+    font = "PuristaMedium";
+    text = "";
+};
+class R3FAdvLog_Cargo_Button {
+    idc = -1;
+    type = 16;
+    style = 0;
+
+    text = "btn";
+    action = "";
+
+    x = 0; w = 0.17;
+    y = 0; h = 0.045;
+
+    font = "PuristaLight";
+    size = 0.038;
+    sizeEx = 0.038;
+
+    animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
+    animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
+    animTextureOver = "#(argb,8,8,3)color(1,1,1,0.5)";
+    animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
+    animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
+    animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
+    textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
+    colorBackground[] = {0,0,0,0.8};
+    colorBackground2[] = {1,1,1,0.5};
+    colorBackgroundFocused[] = {1,1,1,0.5};
+    color[] = {1,1,1,1};
+    color2[] = {1,1,1,1};
+    colorText[] = {1,1,1,1};
+    colorFocused[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.25};
+    period = 0.6;
+    periodFocus = 0.6;
+    periodOver = 0.6;
+    shadow = 0;
+
+    class HitZone {
+        left = 0.000;
+        top = 0.000;
+        right = 0.000;
+        bottom = 0.000;
+    };
+
+    class ShortcutPos {
+        left = 0.000;
+        top = 0.000;
+        w = 0.023;
+        h = 0.050;
+    };
+
+    class TextPos {
+        left = 0.010;
+        top = 0.000;
+        right = 0.000;
+        bottom = 0.000;
+    };
+
+    soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter",0.09,1};
+    soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};
+    soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick",0.09,1};
+    soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape",0.09,1};
+
+    class Attributes {
+        font = "PuristaLight";
+        color = "#E5E5E5";
+        align = "left";
+        shadow = "false";
+    };
+
+    class AttributesImage {
+        font = "PuristaLight";
+        color = "#E5E5E5";
+        align = "left";
+    };
+};
+class R3FAdvLog_Cargo_List {
+    type = CT_LISTBOX;
+    style = ST_MULTI;
+    idc = -1;
+    text = "";
+    w = 0.275;
+    h = 0.04;
+    wholeHeight = 0.45;
+    rowHeight = 0.06;
+    font = "PuristaSemibold";
+    sizeEx = 0.035;
+    soundSelect[] = {"",0.1,1};
+    soundExpand[] = {"",0.1,1};
+    soundCollapse[] = {"",0.1,1};
+    maxHistoryDelay = 1;
+    autoScrollSpeed = -1;
+    autoScrollDelay = 5;
+    autoScrollRewind = 0;
+
+    shadow = 0;
+    colorShadow[] = {0,0,0,0.5};
+    color[] = {1,1,1,1};
+    colorText[] = {1,1,1,1.0};
+    colorDisabled[] = {1,1,1,0.25};
+    colorScrollbar[] = {1,0,0,0};
+    colorSelect[] = {0,0,0,1};
+    colorSelect2[] = {0,0,0,1};
+    colorSelectBackground[] = {0.95,0.95,0.95,1};
+    colorSelectBackground2[] = {1,1,1,0.5};
+    colorBackground[] = {0,0,0,0};
+    period = 1.2;
+
+    class ListScrollBar {
+        color[] = {1,1,1,0.6};
+        colorActive[] = {1,1,1,1};
+        colorDisabled[] = {1,1,1,0.3};
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+    };
+};
+// End Base class defines

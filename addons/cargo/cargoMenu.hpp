@@ -8,258 +8,102 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "dlgDefines.hpp"
 
 #define 0.027 0.027
 
-class R3F_LOG_dlg_contenu_vehicule
-{
+class GVAR(menu) {
 	idd = 65431;
 	name = "R3F_LOG_dlg_contenu_vehicule";
+	onLoad = QUOTE([_this select 0] call FUNC(onMenuOpen));
 	movingEnable = false;
 
-	controlsBackground[] =
-	{
-		R3F_LOG_dlg_CV_titre_fond,
-		R3F_LOG_dlg_CV_fond_noir
+	controlsBackground[] = {
+		class TitleBackground : R3FAdvLog_Cargo_Text {
+			x = 0.26;
+			y = 0.145 - 0.027-0.005;
+			w = 0.45;
+			h = 0.07;
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
+		};
+		class BlackBackground : R3FAdvLog_Cargo_Text {
+			x = 0.26;
+			y = 0.220 - 0.027-0.005;
+			w = 0.45;
+			h = 0.027 + 0.010 + 0.54 - 0.005;
+			colorBackground[] = {0,0,0,0.5};
+		};
 	};
 	objects[] = {};
-	controls[] =
-	{
-		R3F_LOG_dlg_CV_titre,
-		R3F_LOG_dlg_CV_capacite_vehicule,
-		R3F_LOG_dlg_CV_jauge_chargement,
-		R3F_LOG_dlg_CV_liste_contenu,
-
-		R3F_LOG_dlg_CV_credits,
-		R3F_LOG_dlg_CV_btn_decharger,
-		R3F_LOG_dlg_CV_btn_fermer
-	};
-
-	// D?finition des classes de base
-	class R3F_LOG_dlg_CV_texte
-	{
-		idc = -1;
-		type = CT_STATIC;
-		style = ST_LEFT;
-		x = 0.0; w = 0.3;
-		y = 0.0; h = 0.03;
-		sizeEx = 0.023;
-		colorBackground[] = {0,0,0,0};
-		colorText[] = {1,1,1,1};
-		font = "PuristaMedium";
-		text = "";
-	};
-
-	class R3F_LOG_dlg_CV_btn
-	{
-		idc = -1;
-		type = 16;
-		style = 0;
-
-		text = "btn";
-		action = "";
-
-		x = 0; w = 0.17;
-		y = 0; h = 0.045;
-
-		font = "PuristaLight";
-		size = 0.038;
-		sizeEx = 0.038;
-
-		animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
-		animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
-		animTextureOver = "#(argb,8,8,3)color(1,1,1,0.5)";
-		animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
-		animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
-		animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
-		textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
-		colorBackground[] = {0,0,0,0.8};
-		colorBackground2[] = {1,1,1,0.5};
-		colorBackgroundFocused[] = {1,1,1,0.5};
-		color[] = {1,1,1,1};
-		color2[] = {1,1,1,1};
-		colorText[] = {1,1,1,1};
-		colorFocused[] = {1,1,1,1};
-		colorDisabled[] = {1,1,1,0.25};
-		period = 0.6;
-		periodFocus = 0.6;
-		periodOver = 0.6;
-		shadow = 0;
-
-		class HitZone
-		{
-			left = 0.000;
-			top = 0.000;
-			right = 0.000;
-			bottom = 0.000;
+	controls[] = {
+		class Title : R3FAdvLog_Cargo_Text {
+			idc = 65440;
+			x = 0.26;
+			y = 0.145 - 0.027-0.005;
+			w = 0.45;
+			h = 0.04;
+			sizeEx = 0.05;
+			text = text = CSTRING(dlg_Title);;
+		};
+		class VehicleCapacity : R3FAdvLog_Cargo_Text {
+			idc = 65432;
+			x = 0.255;
+			y = 0.185 - 0.027-0.005;
+			w = 0.4;
+			h = 0.03;
+			sizeEx = 0.03;
+			text = CSTRING(dlg_Capacity);
+		};
+		class capacityGauge {
+			idc = 65443;
+			type = CT_PROGRESS;
+			style = ST_LEFT;
+			x = 0.26 + 0.0035;
+			y = 0.220 - 0.027-0.005 + 0.0035;
+			w = 0.45 - 0.007;
+			h = 0.027;
+			shadow = 2;
+			colorBar[] = {0.9,0.9,0.9,0.9};
+			colorExtBar[] = {1,1,1,1};
+			colorFrame[] = {1,1,1,1};
+			texture = "";
+			textureExt = "";
+		};
+		class CargoList : R3FAdvLog_Cargo_List {
+			idc = 65433;
+			x = 0.26;
+			y = 0.22 + 0.005;
+			w = 0.45;
+			h = 0.54 - 0.005;
+			onLBDblClick = "[] spawn AdvLog_fnc_unloading;";
+			onLBSelChanged = QUOTE(uiNamespace setVariable [ARR_2(QGVAR(menuSelected), (_this select 0) lbData (_this select 1))];);
 		};
 
-		class ShortcutPos
-		{
-			left = 0.000;
-			top = 0.000;
-			w = 0.023;
-			h = 0.050;
-		};
-
-		class TextPos
-		{
-			left = 0.010;
-			top = 0.000;
-			right = 0.000;
-			bottom = 0.000;
-		};
-
-		soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter",0.09,1};
-		soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};
-		soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick",0.09,1};
-		soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape",0.09,1};
-
-		class Attributes
-		{
+		class Credits : R3FAdvLog_Cargo_Text {
+			idc = 65441;
+			x = 0.255;
+			y = 0.813;
+			w = 0.19;
+			h = 0.02;
+			colorText[] = {0.5,0.5,0.5,0.75};
 			font = "PuristaLight";
-			color = "#E5E5E5";
-			align = "left";
-			shadow = "false";
+			sizeEx = 0.02;
+			text = "[R3F] Logistics";
 		};
-
-		class AttributesImage
-		{
-			font = "PuristaLight";
-			color = "#E5E5E5";
-			align = "left";
+		class UnloadButton : R3FAdvLog_Cargo_Button {
+			idc = 65434;
+			x = 0.365;
+			y = 0.765;
+			sizeEx = 0.02;
+			text = CSTRING(dlg_Unload);
+			action = "[] spawn AdvLog_fnc_unloading;";
 		};
-	};
-
-	class R3F_LOG_dlg_CV_liste
-	{
-		type = CT_LISTBOX;
-		style = ST_MULTI;
-		idc = -1;
-		text = "";
-		w = 0.275;
-		h = 0.04;
-		wholeHeight = 0.45;
-		rowHeight = 0.06;
-		font = "PuristaSemibold";
-		sizeEx = 0.035;
-		soundSelect[] = {"",0.1,1};
-		soundExpand[] = {"",0.1,1};
-		soundCollapse[] = {"",0.1,1};
-		maxHistoryDelay = 1;
-		autoScrollSpeed = -1;
-		autoScrollDelay = 5;
-		autoScrollRewind = 0;
-
-		shadow = 0;
-		colorShadow[] = {0,0,0,0.5};
-		color[] = {1,1,1,1};
-		colorText[] = {1,1,1,1.0};
-		colorDisabled[] = {1,1,1,0.25};
-		colorScrollbar[] = {1,0,0,0};
-		colorSelect[] = {0,0,0,1};
-		colorSelect2[] = {0,0,0,1};
-		colorSelectBackground[] = {0.95,0.95,0.95,1};
-		colorSelectBackground2[] = {1,1,1,0.5};
-		colorBackground[] = {0,0,0,0};
-		period = 1.2;
-
-		class ListScrollBar
-		{
-			color[] = {1,1,1,0.6};
-			colorActive[] = {1,1,1,1};
-			colorDisabled[] = {1,1,1,0.3};
-			thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-			arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-			arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-			border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+		class CancelButton : R3FAdvLog_Cargo_Button {
+			idc = 65442;
+			x = 0.54;
+			y = 0.765;
+			text = CSTRING(dlg_Cancel);
+			action = "closeDialog 0;";
 		};
 	};
-	// FIN D?finition des classes de base
-
-
-	class R3F_LOG_dlg_CV_titre_fond : R3F_LOG_dlg_CV_texte
-	{
-		x = 0.26; w = 0.45;
-		y = 0.145 - 0.027-0.005; h = 0.07;
-		colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
-	};
-
-	class R3F_LOG_dlg_CV_titre : R3F_LOG_dlg_CV_texte
-	{
-		idc = 65440;
-		x = 0.26; w = 0.45;
-		y = 0.145 - 0.027-0.005; h = 0.04;
-		sizeEx = 0.05;
-		text = "";
-	};
-
-	class R3F_LOG_dlg_CV_capacite_vehicule : R3F_LOG_dlg_CV_texte
-	{
-		idc = 65432;
-		x = 0.255; w = 0.4;
-		y = 0.185 - 0.027-0.005; h = 0.03;
-		sizeEx = 0.03;
-		text = "";
-	};
-
-	class R3F_LOG_dlg_CV_fond_noir : R3F_LOG_dlg_CV_texte
-	{
-		x = 0.26;  w = 0.45;
-		y = 0.220 - 0.027-0.005; h = 0.027 + 0.010 + 0.54 - 0.005;
-		colorBackground[] = {0,0,0,0.5};
-	};
-
-	class R3F_LOG_dlg_CV_jauge_chargement
-	{
-		idc = 65443;
-		type = CT_PROGRESS;
-		style = ST_LEFT;
-		x = 0.26 + 0.0035;  w = 0.45 - 0.007;
-		y = 0.220 - 0.027-0.005 + 0.0035; h = 0.027;
-		shadow = 2;
-		colorBar[] = {0.9,0.9,0.9,0.9};
-		colorExtBar[] = {1,1,1,1};
-		colorFrame[] = {1,1,1,1};
-		texture = "";
-		textureExt = "";
-	};
-
-	class R3F_LOG_dlg_CV_liste_contenu : R3F_LOG_dlg_CV_liste
-	{
-		idc = 65433;
-		x = 0.26; w = 0.45;
-		y = 0.22 + 0.005; h = 0.54 - 0.005;
-		onLBDblClick = "[] spawn AdvLog_fnc_unloading;";
-		onLBSelChanged = "uiNamespace setVariable [""R3F_LOG_dlg_CV_lbCurSel_data"", (_this select 0) lbData (_this select 1)];";
-	};
-
-	class R3F_LOG_dlg_CV_credits : R3F_LOG_dlg_CV_texte
-	{
-		idc = R3F_LOG_IDC_dlg_CV_credits;
-		x = 0.255; w = 0.19;
-		y = 0.813; h = 0.02;
-		colorText[] = {0.5,0.5,0.5,0.75};
-		font = "PuristaLight";
-		sizeEx = 0.02;
-		text = "";
-	};
-
-	class R3F_LOG_dlg_CV_btn_decharger : R3F_LOG_dlg_CV_btn
-	{
-		idc = 65434;
-		x = 0.365; y = 0.765;
-		sizeEx = 0.02;
-		text = "";
-		action = "[] spawn AdvLog_fnc_unloading;";
-	};
-
-	class R3F_LOG_dlg_CV_btn_fermer : R3F_LOG_dlg_CV_btn
-	{
-		idc = 65442;
-		x = 0.54; y = 0.765;
-		text = "";
-		action = "closeDialog 0;";
-	};
-};

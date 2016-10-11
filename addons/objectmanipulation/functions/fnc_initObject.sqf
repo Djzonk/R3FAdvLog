@@ -1,47 +1,42 @@
 /*
- * Author: [Name of Author(s)]
- * [Description]
+ * Author: DjZonk
+ * Initalize Variables for moveable or pushable objects.
+ * Called From Init Event Handler.
  *
  * Arguments:
- * 0: Argument Name <TYPE>
+ * 0: Object <OBJECT>
  *
  * Return Value:
- * Return Name <TYPE>
+ * None
  *
  * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
+ * [object] call ace_objectmanipulation_fnc_initObject
  *
- * Public: [Yes/No]
+ * Public: No
  */
  #include "script_component.hpp"
 
 params ["_object"];
+
 _type = typeOf _object;
 TRACE_2("params",_object,_type);
 
 // do nothing if the class is already initialized
-if (_type in GVAR(initializedItemClasses)) exitWith {};
-GVAR(initializedItemClasses) pushBack _type;
+if (_type in GVAR(initializedItemClasses_init)) exitWith {};
+GVAR(initializedItemClasses_init) pushBack _type;
 
-_name = getText (_config >> "displayName");
+//Turn off ACE Featues
+_object setVariable ['ace_dragging_canCarry', false];
+_object setVariable ['ace_dragging_canDrag', false];
 
-//Move Action
-    /*TODO: Rework*/
-if ([_object] call FUNC(canMove)) then {
+//Initalize Variables
+_object setVariable [QGVAR(transportedBy), objNull,];
+_object setVariable [QGVAR(movedBy), objNull,];
 
-    _move = [QGVAR(move), format [localize LSTRING(Move), _name],"z\ace\addons\dragging\UI\icons\box_carry.paa",{_this spawn FUNC(moveObj);},{!R3F_LOG_mutex_local_lock}] call ace_interact_menu_fnc_createAction;
-
-    [_object, 0, ["ACE_MainActions"], _move] call ace_interact_menu_fnc_addActionToObject;
-
+if (GETVAR(_object,QGVAR(canMove), false) == true) then {
+    [_object, true] call FUNC(setMovable);
 };
 
-//Push action
-    /*TODO: Rework*/
-if (([_object] call FUNC(canPush))) then {
-
-    if (!(_object isKindOf "Ship_F")) then {
-        _push = ["R3F_push", "Push","",{_this call ace_interaction_fnc_push},{(vectorMagnitude (velocity (_this select 0)) < 3)}] call ace_interact_menu_fnc_createAction;
-
-        [_object, 0, ["ACE_MainActions"], _push] call ace_interact_menu_fnc_addActionToObject;
-    };
+if (GETVAR(_object,QGVAR(canPush), false) == true) then {
+    [_object, true] call FUNC(setPushable);
 };

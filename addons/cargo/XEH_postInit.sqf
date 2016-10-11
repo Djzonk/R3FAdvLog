@@ -57,37 +57,7 @@ R3F_LOG_classes_build_costs = [];
 
 /* FIN import config */
 
-if (isServer) then
-{
-    // We create the attachment point which will be used to attachTo for objects which ar loaded virtually in Vehicles
-    R3F_LOG_PUBVAR_point_attache = "Land_HelipadEmpty_F" createVehicle [0,0,0];
-    R3F_LOG_PUBVAR_point_attache setPosASL [0,0,0];
-    R3F_LOG_PUBVAR_point_attache setVectorDirAndUp [[0,1,0], [0,0,1]];
-
-    // Sharing the point of attachment with all players
-    publicVariable "R3F_LOG_PUBVAR_point_attache";
-
-    /** List of objects not to lost in a vehicle / cargo if destroyed */
-    //R3F_LOG_liste_objects_a_proteger = [];
-
-    /* Protects the presents objects in   */
-    //execVM "R3F_LOG\monitor_objects_to_protect.sqf";
-};
-
-
-
-
-
 if (!hasInterface) exitWith {};
-
-/*Variable Initalization*/
-//Contains the Object the unit is currently moving
-GVAR(movingObject) = objNull;
-//Contains the object selected by unit
-GVAR(selectedObject) = objNull;
-//Contains list of creation factories
-GVAR(factoryList) = [];
-
 
 call compile preprocessFile "r3fAdvLog\R3F_LOG\general_functions\lib_visualization_object.sqf";
 
@@ -96,4 +66,5 @@ R3F_LOG_mutex_local_lock = false;
 
 call compile preprocessFile "r3fAdvLog\R3F_LOG\general_functions\lib_geometrie_3D.sqf";
 
-R3F_LOG_active = true;
+//Contains the object selected by unit
+GVAR(selectedObject) = objNull;

@@ -19,8 +19,6 @@ private ["_class_heritage, _can_transport_cargo, _can_transport_cargo_cout"];
 
 params [["_object", objNull]];
 
-if (!(missionNamespace getVariable ["AdvLog_Endabled", true])) exitWith {[false, 0]};
-
 if (isNull _object) exitWith {[false, 0]};
 
 _class_heritage = [_object] call AdvLog_fnc_getObjectHeritage;

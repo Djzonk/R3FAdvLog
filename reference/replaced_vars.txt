@@ -1,7 +1,30 @@
-//Global
-R3F_LOG_player_moves_object = GVAR(movingObject)
-R3F_LOG_object_selectionne  = GVAR(selectedObject)
-R3F_LOG_CF_liste_factorys   = GVAR(factoryList)
+Old Name	                |-New Name	        |-Conversion status
+R3F_LOG_player_moves_object	| movingObject	    |
+R3F_LOG_object_selectionne	| selectedObject	|
+R3F_LOG_CF_liste_factorys	| quartermasterList	|
+R3F_LOG_is_transported_by	| transportedBy	    |
+R3F_LOG_is_moved_by	        | movedBy	        |
+R3F_LOG_CF_depuis_factory	| fromQuartermaster	| complete
+R3F_LOG_objects_charges	    | vehicleCargolist	|
+R3F_LOG_dlg_CV_lbCurSel_data| menuSelected		|
 
 //Need to be replaced
 R3F_LOG_action_load_valid_selection
+R3F_DeleteMe
+R3F_LOG_dlg_CV_transporteur
+
+GVARS
+-Name				|-Type	    |-Contains														|-Variable origin	    |-Notes
+canTransport		|BOOL		| if the vehicle can transport cargo							| cargo	                |
+maxCapacity			|NUM		| the max cargo capacity of the vehicle							| cargo	                |
+totalCargoSize		|NUM		| the amount of cargo capacity taken up by cargo in the vehicle	| cargo	                |
+canBeTransported	|BOOL		| if the object can be cargo									| cargo	                |
+size				|NUM		| the size of the object inside cargo							| cargo	                |
+selectedObject		|OBJECT		| the object the player select to load							| cargo	                |
+vehicleCargoList	|ARRAY		| An array of cargo inside the vehicle							| cargo	                |
+transportedBy		|OBJECT		| what object is transporting the object						| cargo	                | set QGVAR macros to EQGVAR in rest of project
+menuSelected		|<>			|																| cargo					|
+movingObject		|OBJECT		| the object currently being moved by the player				| objectmanipulation	|
+movedBy				|OBJECT	    | the player currently moving the object						| objectmanipulation	|
+quartermasterList	|ARRAY		| array of all quartermasters in mission 						| quartermaster			|
+fromQuartermaster	|BOOL		| if the object is spawned from quartermaster					| quartermaster			|

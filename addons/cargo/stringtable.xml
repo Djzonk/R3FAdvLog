@@ -4,47 +4,11 @@
         <Key ID="STR_R3FADVLOG_Cargo_Load">
             <English>Load in the vehicle</English>
         </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Release">
-            <English>Release ""%1""</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Slope">
-            <English>Adjust to the slope</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Ground">
-            <English>Adjust to the ground</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Horizontal">
-            <English>Adjust horizontally</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Turn">
-            <English>Turn left/right (X / C keys)</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Distance">
-            <English>Closer/further (F / R keys)</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move_Getin">
-            <English>You can't get in a vehicle while you're carrying this object!</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Load_In">
-            <English>Load ""%1"" in...</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Load_Select">
-            <English>... load in ""%1""</English>
-        </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Load_Destination">
             <English>Now select the destination for ""%1""...</English>
         </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Load_Inprogress">
-            <English>Loading in progress...</English>
-        </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Load_Loadedin">
-            <English>The object ""%1"" has been loaded in ""%2"".</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Load_Nospace">
-            <English>There is not enough space for this object in this vehicle !</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Unload_Content">
-            <English>View the vehicle's content</English>
+            <English>%1&lt;/br&gt; has been loaded into &lt;/br&gt; %2.</English>
         </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Unload_Progress">
             <English>Unloading in progress...</English>
@@ -62,25 +26,13 @@
             <English>The current operation isn't finished!</English>
         </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Fail_Occupied">
-            <English>There is a player in the object ""%1"" !</English>
+            <English>The Object is Occupied</English>
         </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Fail_Intransit">
             <English>The object ""%1"" is already in transit!</English>
         </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Fail_Tofar">
-            <English>Impossible because the object ""%1"" is too far!</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Title">
-            <English>Vehicle's content</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Capacity">
-            <English>Loading : %1/%2</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Unload">
-            <English>UNLOAD</English>
-        </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Vdlg_Cancel">
-            <English>CANCEL</English>
+            <English>%1 is too far away.</English>
         </Key>
         <Key ID="STR_R3FADVLOG_Cargo_Functionality_Properties">
             <English>Properties</English>
@@ -133,8 +85,32 @@
         <Key ID="STR_R3FADVLOG_Cargo_Unlock_Impossible">
             <English>Cant Unlock</English>
         </Key>
-        <Key ID="STR_R3FADVLOG_Cargo_Move">
-            <English>Take ""%1""</English>
+        <Key ID="STR_R3FADVLOG_Cargo_Open_menu">
+            <English>View %1's Cargo</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Into">
+            <English>Load %1 into %2</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_Select">
+            <English>Load %1</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_dlg_Title">
+            <English>Vehicle's Cargo</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_dlg_Capacity">
+            <English>Capacity : %1/%2</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_dlg_Unload">
+            <English>UNLOAD</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_dlg_Cancel">
+            <English>CANCEL</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Load_InProgress">
+            <English>Loading in progress...</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_Nospace">
+            <English>There is not enough space for this object in this vehicle !</English>
         </Key>
     </Package>
 </Project>
