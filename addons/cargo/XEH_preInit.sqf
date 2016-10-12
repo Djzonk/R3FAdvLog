@@ -14,4 +14,6 @@ GVAR(canBeMoved) = [];
 GVAR(canBePushed) = [];
 GVAR(cost) = [];
 
+#include "initSettings.sqf"
+
 ADDON = true;
