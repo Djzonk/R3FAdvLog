@@ -18,7 +18,7 @@ class Extended_PostInit_EventHandlers {
 class Extended_Init_EventHandlers {
     class ThingX {
         class ADDON {
-            init = QUOTE(_this call DFUNC(initObject);
+            init = QUOTE(_this call DFUNC(initObject));
         };
     };
     class StaticWeapon {
