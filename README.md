@@ -1,20 +1,27 @@
 <p align="center">
-    <img src="\extras\logo\advLog.png" width="128">
+    <img src="https://github.com/Djzonk/R3FAdvLog/raw/master//extras/logo/advLog.png">
 </p>
+
 <p align="center">
-[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=plastic)](https://github.com/stcrowe/R3FAdvLog)
-[![Issues](https://img.shields.io/github/issues-raw/stcrowe/R3FAdvLog.svg?style=plastic&label=Issues)](https://github.com/stcrowe/R3FAdvLog/issues)
-[![BI Forum](https://img.shields.io/badge/Forum-Thread-3dcfed.svg?style=plastic)](https://forums.bistudio.com/topic/194233-r3f-advance-logistics-unofficial-ace3-beta/)
-[![license](https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic)](https://github.com/stcrowe/R3FAdvLog/blob/master/LICENSE)
+    <a href="https://github.com/stcrowe/R3FAdvLog">
+        <img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=plastic" alt="Version">
+    </a>
+    <a href="https://github.com/stcrowe/R3FAdvLog/issues">
+        <img src="https://img.shields.io/github/issues-raw/Djzonk/R3FAdvLog.svg?style=plastic&label=Issues" alt="Issues">
+    </a>
+    <a href="https://forums.bistudio.com/topic/194233-r3f-advance-logistics-unofficial-ace3-beta/">
+        <img src="https://img.shields.io/badge/Forum-Thread-3dcfed.svg?style=plastic" alt="BI Forum">
+    </a>
+    <a href="https://github.com/stcrowe/R3FAdvLog/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic" alt="license">
+    </a>
+</p>
+    
 <p align="center">
     <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a>.<br/></strong></sup>
 </p>
 
 # R3F Advance Logistics
-
-A project template for Arma3 AddOn projects using the ACE3 framework. This template is based off the ACE3 project structure. It is used in projects such as [ACEX](https://github.com/acemod/ACEX) and [ACEX Artillery](https://github.com/acemod/ACEX_artillery).
-
-The project template comes with it's own implementation of tools used within the ACE project, such as build and release scripts, SQF validation scripts and more.
 
 ### Development Environment
 
