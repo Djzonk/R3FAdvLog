@@ -1,20 +1,21 @@
- /*
-  * Author: DjZonk
-  * Loads Selected object into vehicle.
-  *
-  * Arguments:
-  * 0: Player <OBJECT>
-  * 1: Target <OBJECT>
-  *
-  * Return Value:
-  * None
-  *
-  * Example:
-  * [_player,_target] call ace_cargo_fnc_loadSelection
-  *
-  * Public: No
-  */
+/*
+* Author: DjZonk
+* Triggers loading sequence when loading a selected object
+*
+* Arguments:
+* 0: Player <OBJECT>
+* 1: Object <OBJECT>
+*
+* Return Value:
+* Return Name <TYPE>
+*
+* Example:
+* [player, Object] call r3fadvlog_cargo_fnc_loadSelection
+*
+* Public: No
+*/
 #include "script_component.hpp"
+
 params ["_player", "_target"]
 
 private _object = _player getVariable QGVAR(selectedObject);

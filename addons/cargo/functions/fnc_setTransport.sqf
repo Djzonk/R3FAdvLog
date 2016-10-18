@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * [vehicle] call R3FAdvLog_cargo_fnc_setTransport
+ * [vehicle] call r3fadvlog_cargo_fnc_setTransport
  *
  * Public: Yes
  */
@@ -28,10 +28,11 @@ _object setVariable [QGVAR(canTransport), _canTransport];
 _object setVariable [QGVAR(maxCapacity), _maxCapacity];
 
 //if already Transport do nothing
-if (_type in GVAR(initializedItemClasses_transport)) exitWith {};
-GVAR(initializedItemClasses_transport) pushBack _type;
+if (_type in GVAR(initializedVehicleClasses)) exitWith {};
+GVAR(initializedVehicleClasses) pushBack _type;
 
 TRACE_1("Adding cargo menu/load actions to class", _type);
+
 //Add Cargo Menu Action
 private _name = getText (_config >> "displayName");
 private _displayName = format [localize LSTRING(Open_menu), _name];
@@ -59,5 +60,5 @@ private _modifierFunction = {
     _actionData set [1, format [localize LSTRING(Load_Into),_selected,_name]];
 };
 
-private _load = [QGVAR(load),"?","",_statement,_condition,{},[],"","",[],_modifierFunction] call ace_interact_menu_fnc_createAction;
+private _load = [QGVAR(load),"?","",_statement,_condition,nil,nil,nil,nil,nil,_modifierFunction] call ace_interact_menu_fnc_createAction;
 [_vehicle, 0, ["ACE_MainActions"], _load] call ace_interact_menu_fnc_addActionToObject;

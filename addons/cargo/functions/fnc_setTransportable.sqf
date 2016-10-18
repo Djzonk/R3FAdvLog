@@ -11,11 +11,12 @@
  * Return Name <TYPE>
  *
  * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
+ * [object, true, 3] call R3FAdvLog_cargo_fnc_setTransportable
  *
- * Public: [Yes/No]
+ * Public: Yes
  */
- #include "script_component.hpp"
+#include "script_component.hpp"
+
 params [["_object", objNull], ["_canBeTransported", true], ["_size",1]];
 private _type = typeOf _object;
 

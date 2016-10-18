@@ -24,17 +24,17 @@ class Extended_Init_EventHandlers {
         class ADDON {
             init = QUOTE(_this call DFUNC(initVehicle));
         };
-	};
+    };
     class Air {
         class ADDON {
             init = QUOTE(_this call DFUNC(initVehicle));
         };
-	};
+    };
     class Ship {
         class ADDON {
             init = QUOTE(_this call DFUNC(initVehicle));
         };
-	};
+    };
     class StaticWeapon {
         class ADDON {
             init = QUOTE(_this call DFUNC(initObject));

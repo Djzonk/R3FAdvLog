@@ -6,14 +6,9 @@ LOG(MSG_INIT);
 #include "XEH_PREP.hpp"
 
 GVAR(initializedItemClasses) = [];
+GVAR(initializedItemClasses_init) = [];
+GVAR(initializedVehicleClasses_init) = [];
 GVAR(initializedVehicleClasses) = [];
-
-//Initalize Global Variables
-GVAR(canTransport) = [];
-GVAR(canBeTransported) = [];
-GVAR(canBeMoved) = [];
-GVAR(canBePushed) = [];
-GVAR(cost) = [];
 
 #include "initSettings.sqf"
 

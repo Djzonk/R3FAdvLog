@@ -17,6 +17,7 @@
 #include "script_component.hpp"
 
 	// Deselect the object if the player does nothing
+	 /*TODO: move to canPlayerLoad check fnc*/
 	[{
     	params ["_args", "_id"];
     	_args params ["_unit"];

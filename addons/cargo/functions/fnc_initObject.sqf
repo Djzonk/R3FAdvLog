@@ -1,17 +1,17 @@
 /*
- * Author: [Name of Author(s)]
- * [Description]
+ * Author: DjZonk
+ * adds cargo actions to objects called by CfgEventHandlers
  *
  * Arguments:
- * 0: Argument Name <TYPE>
+ * 0: object <OBJECT>
  *
  * Return Value:
- * Return Name <TYPE>
+ * None
  *
  * Example:
- * ["example"] call ace_[module]_fnc_[functionName]
+ * [object] call r3fadvlog_cargo_fnc_initObject
  *
- * Public: [Yes/No]
+ * Public: No
  */
  #include "script_component.hpp"
 
@@ -22,10 +22,6 @@ TRACE_2("params",_object,_type);
 // do nothing if the class is already initialized
 if (_type in GVAR(initializedItemClasses_init)) exitWith {};
 GVAR(initializedItemClasses_init) pushBack _type;
-
-//Turn off ace cago
-_object setVariable ['ace_cargo_space', 0];
-_object setVariable ['ace_cargo_canLoad', 0];
 
 if (GETVAR(_object,QGVAR(canBeTransported), false) == true) then {
     [_object, true] call FUNC(setTransportable);

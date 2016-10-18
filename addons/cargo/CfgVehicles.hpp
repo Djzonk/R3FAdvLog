@@ -6,3 +6,4 @@ class CfgVehicles {
         };
     };
 };
+// TODO: customize vehicles/objects with gvars for loading/capacity/size

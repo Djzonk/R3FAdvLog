@@ -112,5 +112,8 @@
         <Key ID="STR_R3FADVLOG_Cargo_Fail_Nospace">
             <English>There is not enough space for this object in this vehicle !</English>
         </Key>
+        <Key ID="STR_R3FADVLOG_Cargo_Fail_NoUnloadPosition">
+            <English>There is no Safe location to unload the object</English>
+        </Key>
     </Package>
 </Project>
