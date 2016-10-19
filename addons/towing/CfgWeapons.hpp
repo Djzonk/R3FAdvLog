@@ -3,10 +3,10 @@ class CfgWeapons {
     class InventoryItem_Base_F;
 
     class AdvLog_TowCable: ACE_ItemCore {
-        displayName = "Emergency Tow Cable";
-        descriptionShort = "Used for towing vehicles incase of an emergency.";
+        displayName = QUOTE(Emergency Tow Cable);// TODO: change to stringtable
+        descriptionShort = QUOTE(Used for towing vehicles incase of an emergency.);// TODO: change to stringtable
         model = "\A3\Structures_F_EPA\Items\Tools\MetalWire_F.p3d";
-        picture = "\r3fAdvLog\data\tow.paa";
+        picture = QPATHTOF(data\tow.paa);
         scope = 2;
         class ItemInfo: InventoryItem_Base_F {
         	mass = 12;

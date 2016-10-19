@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="R3FADVLOG">
-    <Package name="Component Name">
-        <Key ID="STR_R3FADVLOG_CompnentName_tag">
+    <Package name="Towing">
+        <Key ID="STR_R3FADVLOG_Towing_tag">
             <English>String</English>
         </Key>
     </Package>

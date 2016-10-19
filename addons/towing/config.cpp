@@ -8,7 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"r3fadvlog_main"};
         author = ECSTRING(main,Author);
-        authors[] = {""};
+        authors[] = {"DjZonk, S.Crowe"};
         url = ECSTRING(main,URL);
         VERSION_CONFIG;
     };

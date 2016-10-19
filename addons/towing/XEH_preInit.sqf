@@ -5,9 +5,9 @@ LOG(MSG_INIT);
 
 #include "XEH_PREP.hpp"
 
-R3F_LOG_CFG_can_tow = missionNamespace getVariable["R3F_LOG_CFG_can_tow", []];
-R3F_LOG_CFG_cannot_etow = missionNamespace getVariable["R3F_LOG_CFG_cannot_etow", []];
-R3F_LOG_CFG_can_be_towed = missionNamespace getVariable["R3F_LOG_CFG_can_be_towed", []];
+GVAR(canTow) = missionNamespace getVariable[QGVAR(canTow), []];
+GVAR(cannotETOW) = missionNamespace getVariable[QGVAR(cannotETOW), []];
+GVAR(canBeTowed) = missionNamespace getVariable[QGVAR(canBeTowed), []];
 
 #include "initSettings.sqf"
 

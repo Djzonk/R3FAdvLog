@@ -7,6 +7,9 @@ R3F_LOG_is_moved_by          | movedBy           |
 R3F_LOG_CF_depuis_factory    | fromQuartermaster | complete
 R3F_LOG_objects_charges      | vehicleCargolist  |
 R3F_LOG_dlg_CV_lbCurSel_data | menuSelected      |
+R3F_LOG_CFG_can_tow          | canTow            |
+R3F_LOG_CFG_cannot_etow      | cannotETow        |
+R3F_LOG_CFG_can_be_towed     | canBeTowed        |
 
 //Need to be replaced
 R3F_LOG_action_load_valid_selection
@@ -23,9 +26,12 @@ size              | NUM    | the size of the object inside cargo                
 selectedObject    | OBJECT | the object the player select to load                          | cargo              |
 vehicleCargoList  | ARRAY  | An array of cargo inside the vehicle                          | cargo              |
 transportedBy     | OBJECT | what object is transporting the object                        | cargo              | set QGVAR macros to EQGVAR in rest of project
-menuSelected      | <>     |                                                               | cargo              |
+menuSelected      | OBJECT | what is currently selected in the caro menu                   | cargo              |
 movingObject      | OBJECT | the object currently being moved by the player                | objectmanipulation |
 movedBy           | OBJECT | the player currently moving the object                        | objectmanipulation |
 canMove           | BOOL   | if the object can be Moved                                    | objectmanipulation |
 quartermasterList | ARRAY  | array of all quartermasters in mission                        | quartermaster      |
 fromQuartermaster | BOOL   | if the object is spawned from quartermaster                   | quartermaster      |
+canTow            | BOOL   |if and object can tow                                          | towing             |
+cannotETow        | BOOL   |||
+canBeTowed        | BOOL   | if and object can tow                                         | towing             |

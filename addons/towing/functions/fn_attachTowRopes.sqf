@@ -14,6 +14,22 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+/*
+* Author: [Name of Author(s)]
+* [Description]
+*
+* Arguments:
+* 0: Argument Name <TYPE>
+*
+* Return Value:
+* Return Name <TYPE>
+*
+* Example:
+* ["example"] call r3fadvlog_[module]_fnc_[functionName]
+*
+* Public: [Yes/No]
+*/
+#include "script_component.hpp"
 
 params ["_cargo","_player"];
 	_vehicle = _player getVariable ["SA_Tow_Ropes_Vehicle", objNull];
@@ -25,6 +41,7 @@ params ["_cargo","_player"];
 		};
 
 		private ["_towRopes","_vehicleHitch","_cargoHitch","_objDistance","_ropeLength"];
+        
 		_towRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
 		if(count _towRopes == 1) then {
 
@@ -36,8 +53,7 @@ params ["_cargo","_player"];
 			_objDistance = ((_vehicle modelToWorld _vehicleHitch) distance (_cargo modelToWorld _cargoHitch));
 			if( _objDistance > _ropeLength ) then {
 				"The tow ropes are too short. Move vehicle closer." remoteExecCall ["systemChat", _player];
-			}
-			else {
+			} else {
 
 				_helper = (_player getVariable ["SA_Tow_Ropes_Pick_Up_Helper", objNull]);
 				if(!isNull _helper) then {

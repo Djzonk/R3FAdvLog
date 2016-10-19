@@ -14,6 +14,22 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+/*
+* Author: [Name of Author(s)]
+* [Description]
+*
+* Arguments:
+* 0: Argument Name <TYPE>
+*
+* Return Value:
+* Return Name <TYPE>
+*
+* Example:
+* ["example"] call r3fadvlog_[module]_fnc_[functionName]
+*
+* Public: [Yes/No]
+*/
+#include "script_component.hpp"
 
 params ["_cargo"];
 
@@ -49,11 +65,8 @@ if(not isNull _vehicle && not isNull _cargo) then {
 	} forEach (missionNamespace getVariable ["SA_TOW_RULES_OVERRIDE",_rules]);
 };
 
-if(!isNull _vehicle && !isNull _cargo) then
-{
+if(!isNull _vehicle && !isNull _cargo) then {
 	(_canTow && vehicle player == player && _vehicle != _cargo)
-}
-else
-{
+} else {
 	false
 };

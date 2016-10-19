@@ -1,5 +1,17 @@
+/**
+* Modified by Sean Crowe, original script by Team ~R3F~
+* please see orginal work @ https://forums.bistudio.com/topic/170033-r3f-logistics/
+*
+* To get a full list of changes please contant me on the biforums under the username S.Crowe
+*
+* Copyright (C) 2014 Team ~R3F~
+*
+* This program is free software under the terms of the GNU General Public License version 3.
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 /*
-* Author: DjZonk, S.Crowe, R3f team
+* Author: DjZonk, S.Crowe
 * controls the data displayed in the cargo menu
 *
 * Arguments:

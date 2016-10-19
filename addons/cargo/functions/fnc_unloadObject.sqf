@@ -1,5 +1,5 @@
 /*
-* Author: DjZonk, S.Crowe, r3f team
+* Author: DjZonk, S.Crowe
 * control unload process
 *
 * Arguments:
@@ -44,7 +44,7 @@ if (_unloadConfirmed) then {
 	closeDialog 0;
 
 	if (_object isKindOf "AllVehicles" && !_isMovable) then {
-	    private _emptyPos = [GVAR(interactionVehicle), _objectClass] call Ace_common_fnc_findUnloadPosition;
+	    private _emptyPos = [GVAR(interactionVehicle), _objectClass] call ace_common_fnc_findUnloadPosition;
 		TRACE_1("findUnloadPosition",_emptyPos);
 
 		if ((count _emptyPos) != 3) exitWith {
