@@ -15,7 +15,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 /*
-* Author: [Name of Author(s)]
+* Author: Seth Duda
 * [Description]
 *
 * Arguments:
@@ -32,16 +32,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include "script_component.hpp"
 
 params ["_vehicle"];
-	private ["_cornerPoints","_rearCorner","_rearCorner2","_frontCorner","_frontCorner2","_rearHitchPoint"];
-	private ["_frontHitchPoint","_sideLeftPoint","_sideRightPoint"];
-	_cornerPoints = [_vehicle] call AdvLog_fnc_getCornerPoints;
-	_rearCorner = _cornerPoints select 0;
-	_rearCorner2 = _cornerPoints select 1;
-	_frontCorner = _cornerPoints select 2;
-	_frontCorner2 = _cornerPoints select 3;
-	_rearHitchPoint = ((_rearCorner vectorDiff _rearCorner2) vectorMultiply 0.5) vectorAdd  _rearCorner2;
-	_frontHitchPoint = ((_frontCorner vectorDiff _frontCorner2) vectorMultiply 0.5) vectorAdd  _frontCorner2;
-	//_sideLeftPoint = ((_frontCorner vectorDiff _rearCorner) vectorMultiply 0.5) vectorAdd  _frontCorner;
-	//_sideRightPoint = ((_frontCorner2 vectorDiff _rearCorner2) vectorMultiply 0.5) vectorAdd  _frontCorner2;
+    private _cornerPoints = [_vehicle] call AdvLog_fnc_getCornerPoints;
+    private _rearCorner = _cornerPoints select 0;
+    private _rearCorner2 = _cornerPoints select 1;
+    private _frontCorner = _cornerPoints select 2;
+    private _frontCorner2 = _cornerPoints select 3;
+    private _rearHitchPoint = ((_rearCorner vectorDiff _rearCorner2) vectorMultiply 0.5) vectorAdd  _rearCorner2;
+    private _frontHitchPoint = ((_frontCorner vectorDiff _frontCorner2) vectorMultiply 0.5) vectorAdd  _frontCorner2;
+    //private _sideLeftPoint = ((_frontCorner vectorDiff _rearCorner) vectorMultiply 0.5) vectorAdd  _frontCorner;
+    //private _sideRightPoint = ((_frontCorner2 vectorDiff _rearCorner2) vectorMultiply 0.5) vectorAdd  _frontCorner2;
 
-	[_frontHitchPoint,_rearHitchPoint]
+    [_frontHitchPoint,_rearHitchPoint]

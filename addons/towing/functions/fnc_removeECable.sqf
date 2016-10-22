@@ -25,7 +25,7 @@ if (!local _vehicle) then
 
 
 private ["_existingTowRopes","_hitchPoint","_rope"];
-	_existingTowRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
+	_existingTowRopes = _vehicle getVariable [QGVAR(towRope),[]];
 	if(count _existingTowRopes > 0) then {
 		_this call AdvLog_fnc_pickupTowRopes;
 
@@ -34,7 +34,7 @@ private ["_existingTowRopes","_hitchPoint","_rope"];
 		if(!isNull _helper) then {
 			{
 				_helper ropeDetach _x;
-			} forEach (_vehicle getVariable ["SA_Tow_Ropes",[]]);
+			} forEach (_vehicle getVariable [QGVAR(towRope),[]]);
 			detach _helper;
 			deleteVehicle _helper;
 		};
@@ -44,7 +44,7 @@ private ["_existingTowRopes","_hitchPoint","_rope"];
 		{
 			ropeDestroy _x;
 		} forEach _existingTowRopes;
-		_vehicle setVariable ["SA_Tow_Ropes",nil,true];
+		_vehicle setVariable [QGVAR(towRope),nil,true];
 	};
 
 _vehicle setVariable ["AdvLog_attachedECable", false, true];

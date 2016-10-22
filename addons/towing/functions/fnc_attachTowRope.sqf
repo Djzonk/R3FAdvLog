@@ -19,7 +19,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * [Description]
 *
 * Arguments:
-* 0: Argument Name <TYPE>
+* 0: Vehicle geting towed <OBJECT>
 *
 * Return Value:
 * Return Name <TYPE>
@@ -27,31 +27,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Example:
 * ["example"] call r3fadvlog_[module]_fnc_[functionName]
 *
-* Public: [Yes/No]
+* Public: No
 */
 #include "script_component.hpp"
 
-private ["_vehicle","_canTakeTowRopes"];
-	params ["_params", "_ropeLength"];
-	_params params ["_vehicle", "_player"];
+params ["_target","_player"];
+private _helper = _player getVariable [QGVAR(towRopeHelper), objNull];
+private _towRopeOwner = _helper getVariable [QGVAR(towRopeOwner), objNull];
 
-	if([_vehicle, _player] call AdvLog_fnc_canTakeTowRopes) then {
+if(!local _towRopeOwner) then {
+    [_towRopeOwner, clientOwner] remoteExec ["AdvLog_fnc_setOwner", 2];
+};
 
-		if (!local _vehicle) then
-		{
-			[_vehicle, clientOwner] remoteExec ["AdvLog_fnc_setOwner", 2];
-		};
+if((_towRopeOwner getVariable [QGVAR(towRopeExtended), false]) == true) then {
 
-		_vehicle setVariable ["SA_RopeLength", 20, true];
-		[_player,1,["ACE_SelfActions", "ACE_Equipment", 'AdvTow_Drop']] call ace_interact_menu_fnc_removeActionFromObject;
+    private _targetHitch = ([_target] call AdvLog_fnc_getHitchPoints) select 0;
+    private _ownerHitch = ([_towRopeOwner] call AdvLog_fnc_getHitchPoints) select 1;
 
-		private ["_existingTowRopes","_hitchPoint","_rope"];
-		_existingTowRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
-		if (count _existingTowRopes == 0) then {
-			_hitchPoint = [_vehicle] call AdvLog_fnc_getHitchPoints select 1;
-			_rope = ropeCreate [_vehicle, _hitchPoint, 20];
-			_vehicle setVariable ["SA_Tow_Ropes",[_rope],true];
-			_params call AdvLog_fnc_pickupTowRopes;
-		};
+    private _ropeLength = ropeLength (_helper getVariable [QGVAR(towRope) objNull]);
+    
+    private _objDistance = ((_towRopeOwner modelToWorld _ownerHitch) distance (_target modelToWorld _targetHitch));
 
-	};
+    if( _objDistance > _ropeLength ) then {
+        "The tow ropes are too short. Move vehicle closer." remoteExecCall ["systemChat", _player];
+    } else {
+
+        detach _helper;
+        _helper attachTo [_target, _targetHitch];
+
+        _player setVariable [QGVAR(towRopeHelper), objNull];
+        call ace_interaction_fnc_hideMouseHint;
+
+        _helper setVariable ["SA_Cargo",_target,true];
+
+        [_towRopeOwner,_ownerHitch,_target,_targetHitch] spawn AdvLog_fnc_simulateTowing;
+    };
+};

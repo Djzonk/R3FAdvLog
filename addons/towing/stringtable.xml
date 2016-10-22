@@ -4,5 +4,32 @@
         <Key ID="STR_R3FADVLOG_Towing_tag">
             <English>String</English>
         </Key>
+        <Key ID="STR_R3FADVLOG_Towing_MaxRopeLength_Displayname">
+            <English>Max Length Tow Rope length</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_SettingsCategory">
+            <English>Towing</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_Drop">
+            <English>Drop Tow Rope</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_Length">
+            <English>(Scroll) Change length of rope</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_MaxTrainLength_Displayname">
+            <English>Train max length</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_MaxTrainLength_Tooltip">
+            <English>How mand Vehichles can be towed in a train (Set to 1 to disable trains)</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_Action_Take">
+            <English>Take Tow Ropes</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_Action_PutAway">
+            <English>Put Away Tow Ropes</English>
+        </Key>
+        <Key ID="STR_R3FADVLOG_Towing_Action_WinchControl">
+            <English>Take Control of Winch</English>
+        </Key>
     </Package>
 </Project>

@@ -10,6 +10,13 @@ R3F_LOG_dlg_CV_lbCurSel_data | menuSelected      |
 R3F_LOG_CFG_can_tow          | canTow            |
 R3F_LOG_CFG_cannot_etow      | cannotETow        |
 R3F_LOG_CFG_can_be_towed     | canBeTowed        |
+AdvLog_attachedECable        | eCableAttached    |
+SA_Tow_Ropes                 | towRope           |
+SA_Tow_Ropes_Vehicle         | towRopeOwner      |
+SA_Tow_Ropes_Pick_Up_Helper  | towRopeHelper     |
+SA_RopeLength                | REDACTED          |
+SA_MAX_TOWED_CARGO           | maxTrainLength    |
+
 
 //Need to be replaced
 R3F_LOG_action_load_valid_selection
@@ -32,6 +39,16 @@ movedBy           | OBJECT | the player currently moving the object             
 canMove           | BOOL   | if the object can be Moved                                    | objectmanipulation |
 quartermasterList | ARRAY  | array of all quartermasters in mission                        | quartermaster      |
 fromQuartermaster | BOOL   | if the object is spawned from quartermaster                   | quartermaster      |
-canTow            | BOOL   |if and object can tow                                          | towing             |
-cannotETow        | BOOL   |||
+canTow            | BOOL   | if and object can tow                                         | towing             |
+cannotETow        | ARRAY  | an array of what vics cant Etow                               | towing             |
 canBeTowed        | BOOL   | if and object can tow                                         | towing             |
+eCableAttached    | BOOL   | if the Emergency tow cable is attached                        | towing             |
+towRope           | OBJECT | the tow rope                                                  | towing             | change from array to object
+towRopeHelper     | OBJECT | the helper attached to the towrope the player is holding      | towing             |
+towRopeOwner      | OBJECT | the source of the tow rope                                    | towing             | player no longer hold variable helper dose
+controllingWinch  | BOOL   | if the player is in control of the winch                      | towing
+
+
+Setting Variables
+maxTrainLength  | NUM | the max vehicles in a train | towing|
+maxTowRopeLength| NUM | the max leangth of tow ropes| towing|
