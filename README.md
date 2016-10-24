@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/stcrowe/R3FAdvLog">
-        <img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=plastic" alt="Version">
+        <img src="https://img.shields.io/badge/Version-0.0.0-brightgreen.svg?style=plastic" alt="Version">
     </a>
     <a href="https://github.com/stcrowe/R3FAdvLog/issues">
         <img src="https://img.shields.io/github/issues-raw/Djzonk/R3FAdvLog.svg?style=plastic&label=Issues" alt="Issues">
@@ -15,8 +15,11 @@
     <a href="https://github.com/stcrowe/R3FAdvLog/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic" alt="license">
     </a>
+    <a href="https://travis-ci.org/Djzonk/R3FAdvLog">
+        <img src="https://img.shields.io/travis/Djzonk/R3FAdvLog.svg?style=plastic&label=Build" alt="Build Status">
+    </a>
 </p>
-    
+
 <p align="center">
     <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a>.<br/></strong></sup>
 </p>
