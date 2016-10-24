@@ -9,7 +9,7 @@ class CfgWeapons {
         picture = QPATHTOF(data\tow.paa);
         scope = 2;
         class ItemInfo: InventoryItem_Base_F {
-        	mass = 12;
+            mass = 12;
         };
     };
 };

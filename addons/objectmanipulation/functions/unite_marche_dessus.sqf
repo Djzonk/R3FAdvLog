@@ -45,14 +45,14 @@ _contact = false;
 // On scanne autour de l'unit? avec des segments r?partis sur 3 cercles
 // It scans around the unit with divided segments of 3 circles
 for "_rayon" from 0.3 to 0.9 step 0.3 do {
-	for "_angle" from 0 to 359 step 360 / (40 * _rayon) do {
-		_pos_debut_segment = _unite modelToWorld [_rayon*sin _angle, _rayon*cos _angle, 1];
-		_pos_fin_segment = [_pos_debut_segment select 0, _pos_debut_segment select 1, -1];
+    for "_angle" from 0 to 359 step 360 / (40 * _rayon) do {
+        _pos_debut_segment = _unite modelToWorld [_rayon*sin _angle, _rayon*cos _angle, 1];
+        _pos_fin_segment = [_pos_debut_segment select 0, _pos_debut_segment select 1, -1];
 
-		if (_object in lineIntersectsWith [ATLtoASL _pos_debut_segment, ATLtoASL _pos_fin_segment, _unite, objNull, false]) then {
-			_contact = true;
-		};
-	};
+        if (_object in lineIntersectsWith [ATLtoASL _pos_debut_segment, ATLtoASL _pos_fin_segment, _unite, objNull, false]) then {
+            _contact = true;
+        };
+    };
 };
 
 _contact

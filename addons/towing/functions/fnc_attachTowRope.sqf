@@ -44,11 +44,11 @@ if((_towRopeOwner getVariable [QGVAR(towRopeExtended), false]) == true) then {
     private _targetHitch = ([_target] call AdvLog_fnc_getHitchPoints) select 0;
     private _ownerHitch = ([_towRopeOwner] call AdvLog_fnc_getHitchPoints) select 1;
 
-    private _ropeLength = ropeLength (_helper getVariable [QGVAR(towRope) objNull]);
-    
+    private _ropeLength = ropeLength (_helper getVariable [QGVAR(towRope), objNull]);
+
     private _objDistance = ((_towRopeOwner modelToWorld _ownerHitch) distance (_target modelToWorld _targetHitch));
 
-    if( _objDistance > _ropeLength ) then {
+    if(_objDistance > _ropeLength) then {
         "The tow ropes are too short. Move vehicle closer." remoteExecCall ["systemChat", _player];
     } else {
 

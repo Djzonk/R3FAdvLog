@@ -23,10 +23,10 @@ TRACE_2("params",_object,_type);
 if (_type in GVAR(initializedItemClasses_init)) exitWith {};
 GVAR(initializedItemClasses_init) pushBack _type;
 
-if (GETVAR(_object,QGVAR(canBeTransported), false) == true) then {
+if (_object getVariable [QGVAR(canBeTransported), false] == true) then {
     [_object, true] call FUNC(setTransportable);
 };
 
-if (GETVAR(_object,QGVAR(canTransport), false) == true) then {
+if (_object getVariable [QGVAR(canTransport), false] == true) then {
     [_object, true] call FUNC(setTransport);
 };

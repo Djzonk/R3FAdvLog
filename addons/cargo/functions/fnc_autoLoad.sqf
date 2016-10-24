@@ -5,8 +5,8 @@
  * Arguments:
  * 0: Vehicle getting object loaded into <OBJECT>
  * 1: Array of of arrays <ARRAY>
- *	0: Object Classname <STRING>
- *	1: Quantity of that object <NUMBER> Default: 1
+ *  0: Object Classname <STRING>
+ *  1: Quantity of that object <NUMBER> Default: 1
  *
  * Return Value:
  * No
@@ -22,8 +22,8 @@ TRACE_3("params",_vehicle,_autoLoadCargoList);
 
 if (isNull _vehicle) exitWith {ERROR_MSG("Vehicle param is not defined")};
 {
-	_x params ["_object", ["_quantity", 1]];
-	for "_i" from 1 to _quantity do {
-		[_object, _vehicle] call FUNC(loadObject);
-	};
+    _x params ["_object", ["_quantity", 1]];
+    for "_i" from 1 to _quantity do {
+        [_object, _vehicle] call FUNC(loadObject);
+    };
 } count _autoLoadCargoList;

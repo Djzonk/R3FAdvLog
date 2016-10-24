@@ -30,13 +30,13 @@ _object setVariable ['ace_dragging_canCarry', false];
 _object setVariable ['ace_dragging_canDrag', false];
 
 //Initalize Variables
-_object setVariable [QGVAR(transportedBy), objNull,];
-_object setVariable [QGVAR(movedBy), objNull,];
+_object setVariable [QGVAR(transportedBy), objNull];
+_object setVariable [QGVAR(movedBy), objNull];
 
-if (GETVAR(_object,QGVAR(canMove), false) == true) then {
+if (_object getVariable QGVAR(canMove), false == true) then {
     [_object, true] call FUNC(setMovable);
 };
 
-if (GETVAR(_object,QGVAR(canPush), false) == true) then {
+if (_object getVariable QGVAR(canPush), false == true) then {
     [_object, true] call FUNC(setPushable);
 };

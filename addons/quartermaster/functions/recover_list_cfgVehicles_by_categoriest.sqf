@@ -30,33 +30,33 @@
 #include "script_component.hpp"
 
 [
-	["Sand Bags",
-	"Bunkers",
-	"Statics"],
+    ["Sand Bags",
+    "Bunkers",
+    "Statics"],
 
-	[
-		["Land_BagFence_Corner_F",
-		"Land_BagFence_End_F",
-		"Land_BagFence_Long_F",
-		"Land_BagFence_Round_F",
-		"Land_BagFence_Round_F",
-		"Land_BagFence_Short_F"],
+    [
+        ["Land_BagFence_Corner_F",
+        "Land_BagFence_End_F",
+        "Land_BagFence_Long_F",
+        "Land_BagFence_Round_F",
+        "Land_BagFence_Round_F",
+        "Land_BagFence_Short_F"],
 
-		[
-			"Land_BagBunker_Small_F",
-			"Land_BagBunker_Tower_F"
-		],
+        [
+            "Land_BagBunker_Small_F",
+            "Land_BagBunker_Tower_F"
+        ],
 
-		[
-			"B_HMG_01_high_F"
-		]
-	],
+        [
+            "B_HMG_01_high_F"
+        ]
+    ],
 
-	[
-		[10, 10, 10, 10, 10, 10],
-		[100, 500],
-		[200]
-	]
+    [
+        [10, 10, 10, 10, 10, 10],
+        [100, 500],
+        [200]
+    ]
 ]
 
 
@@ -76,52 +76,52 @@ _cfgVehicles_par_categories = [];
 _nb_config = count (configFile >> "CfgVehicleClasses");
 for [{_idx_config = 0}, {_idx_config < _nb_config}, {_idx_config = _idx_config+1}] do
 {
-	_config = (configFile >> "CfgVehicleClasses") select _idx_config;
-	if (isClass _config) then
-	{
-		// Si la catégorie est autorisé (en fonction de la white ou black list)
-		if (isNull _factory || {(_factory getVariable "R3F_LOG_CF_blackwhitelist_mode" == "white") isEqualTo (toLower configName _config in (_factory getVariable "R3F_LOG_CF_blackwhitelist_categories"))}) then
-		{
-			_cfgVehicles_categories pushBack (configName _config);
-			_cfgVehicles_categories_toLower pushBack (toLower configName _config);
-			_cfgVehicles_par_categories pushBack [];
-		};
-	};
+    _config = (configFile >> "CfgVehicleClasses") select _idx_config;
+    if (isClass _config) then
+    {
+        // Si la catégorie est autorisé (en fonction de la white ou black list)
+        if (isNull _factory || {(_factory getVariable "R3F_LOG_CF_blackwhitelist_mode" == "white") isEqualTo (toLower configName _config in (_factory getVariable "R3F_LOG_CF_blackwhitelist_categories"))}) then
+        {
+            _cfgVehicles_categories pushBack (configName _config);
+            _cfgVehicles_categories_toLower pushBack (toLower configName _config);
+            _cfgVehicles_par_categories pushBack [];
+        };
+    };
 };
 
 // Création de la liste des véhicules, classés par catégorie
 _nb_config = count (configFile >> "CfgVehicles");
 for [{_idx_config = 0}, {_idx_config < _nb_config}, {_idx_config = _idx_config+1}] do
 {
-	_config = (configFile >> "CfgVehicles") select _idx_config;
-	if (isClass _config) then
-	{
-		// Objet instanciable
-		if (getNumber (_config >> "scope") == 2 && !(configName _config isKindOf "Man")) then
-		{
-			// Si l'objet correspond à une side valide
-			if (isNull _factory || {getNumber (_config >> "side") in (_factory getVariable "R3F_LOG_CF_num_sides")}) then
-			{
-				_idx_categorie = _cfgVehicles_categories_toLower find (toLower getText (_config >> "vehicleClass"));
+    _config = (configFile >> "CfgVehicles") select _idx_config;
+    if (isClass _config) then
+    {
+        // Objet instanciable
+        if (getNumber (_config >> "scope") == 2 && !(configName _config isKindOf "Man")) then
+        {
+            // Si l'objet correspond à une side valide
+            if (isNull _factory || {getNumber (_config >> "side") in (_factory getVariable "R3F_LOG_CF_num_sides")}) then
+            {
+                _idx_categorie = _cfgVehicles_categories_toLower find (toLower getText (_config >> "vehicleClass"));
 
-				if (_idx_categorie != -1) then
-				{
-					(_cfgVehicles_par_categories select _idx_categorie) pushBack (configName _config);
-				};
-			};
-		};
-	};
+                if (_idx_categorie != -1) then
+                {
+                    (_cfgVehicles_par_categories select _idx_categorie) pushBack (configName _config);
+                };
+            };
+        };
+    };
 };
 
 // Suppression des catégories ne possédant aucun objet
 _clean_cfgVehicles_categories = [];
 _clean_cfgVehicles_par_categories = [];
 {
-	if (_montrer_categories_vides || count (_cfgVehicles_par_categories select _forEachIndex) > 0) then
-	{
-		_clean_cfgVehicles_categories pushBack _x;
-		_clean_cfgVehicles_par_categories pushBack (_cfgVehicles_par_categories select _forEachIndex);
-	};
+    if (_montrer_categories_vides || count (_cfgVehicles_par_categories select _forEachIndex) > 0) then
+    {
+        _clean_cfgVehicles_categories pushBack _x;
+        _clean_cfgVehicles_par_categories pushBack (_cfgVehicles_par_categories select _forEachIndex);
+    };
 } forEach _cfgVehicles_categories;
 
 [_clean_cfgVehicles_categories, _clean_cfgVehicles_par_categories]*/

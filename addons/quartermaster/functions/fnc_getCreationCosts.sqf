@@ -27,11 +27,11 @@ _index = -1;
 
 if ((typeName _category) == "STRING") then
 {
-	_index = _categories find _category;
+    _index = _categories find _category;
 }
 else
 {
-	_index = _category;
+    _index = _category;
 };
 
 if (_index == -1) exitWith {0};
@@ -43,17 +43,17 @@ _classesForCat = _classesPerCat param [_index, []];
 
 if ((typeName _class) == "STRING") then
 {
-	_classList = [];
+    _classList = [];
 
-	{
-		_classList append [_x param [0, "Land_ToiletBox_F"]];
-	} forEach _classesForCat;
+    {
+        _classList append [_x param [0, "Land_ToiletBox_F"]];
+    } forEach _classesForCat;
 
-	_index = _classList find _class;
+    _index = _classList find _class;
 }
 else
 {
-	_index = _class;
+    _index = _class;
 };
 
 // Return costs

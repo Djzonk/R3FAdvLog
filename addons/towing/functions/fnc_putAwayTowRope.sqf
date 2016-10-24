@@ -31,19 +31,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #include "script_component.hpp"
 
-params ["","_key"];
+params ["_vehicle","_player"];
 
-if (_key == 1) then {//Right Click
-    private _helper = ACE_player getVariable [QGVAR(towRopeHelper), objNull];
-    private _vehicle = _helper getVariable [QGVAR(towRopeOwner), objNull];
+if (!local _vehicle) then
+{
+    [_vehicle, clientOwner] remoteExec ["AdvLog_fnc_setOwner", 2];
 
-    if(local _vehicle) then {
-        detach _helper;
-        
-        _player setVariable [QGVAR(towRopeHelper), objNull];
-        call ace_interaction_fnc_hideMouseHint;
-        
-    } else {
-        _this remoteExecCall  ["AdvLog_fnc_dropTowRopes",_vehicle];
-    };
 };
+
+
+private ["_existingTowRopes","_hitchPoint","_rope"];
+    _existingTowRopes = _vehicle getVariable [QGVAR(towRope),[]];
+    if(count _existingTowRopes > 0) then {
+        _this call AdvLog_fnc_pickupTowRopes;
+
+        private ["_helper"];
+        _helper = (_player getVariable ["SA_Tow_Ropes_Pick_Up_Helper", objNull]);
+        if(!isNull _helper) then {
+            {
+                _helper ropeDetach _x;
+            } forEach (_vehicle getVariable [QGVAR(towRope),[]]);
+            detach _helper;
+            deleteVehicle _helper;
+        };
+        _player setVariable ["SA_Tow_Ropes_Vehicle", nil,true];
+        _player setVariable ["SA_Tow_Ropes_Pick_Up_Helper", nil,true];
+
+        {
+            ropeDestroy _x;
+        } forEach _existingTowRopes;
+        _vehicle setVariable [QGVAR(towRope),nil,true];
+    };

@@ -76,7 +76,7 @@
 			class getObjectHeritage {};
 			class canPush {};
 			class buildCosts {};
-		};*/
+		};
 
 		class towing
 		{
@@ -100,7 +100,7 @@
 			class windTowRope {};
 		};
 
-		/*class transport
+		class transport
 		{
 			file = "r3fAdvLog\functions\r3f\transport";
 			class autoload {};

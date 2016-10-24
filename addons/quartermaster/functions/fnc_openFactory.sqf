@@ -54,45 +54,45 @@ _sel_categorie = 0 max (_factory getVariable "R3F_LOG_CF_mem_idx_categorie");
 
 // Insert each cat?categories available in the list
 {
-	_categorie = _x;
-	private ["_categorie", "_config", "_name"];
-	_name = _x;
+    _categorie = _x;
+    private ["_categorie", "_config", "_name"];
+    _name = _x;
 
-	_index = _ctrl_liste_categories lbAdd format ["%1", _name];
-	_ctrl_liste_categories lbSetData [_index, _categorie];
+    _index = _ctrl_liste_categories lbAdd format ["%1", _name];
+    _ctrl_liste_categories lbSetData [_index, _categorie];
 } forEach ([_factory] call AdvLog_fnc_getCategoryList);
 
 _ctrl_liste_categories lbSetCurSel _sel_categorie;
 
 while {!isNull _dlg_liste_objects} do
 {
-	_credits_factory = _factory getVariable "R3F_LOG_CF_credits";
+    _credits_factory = _factory getVariable "R3F_LOG_CF_credits";
 
-	// Enable creation button only if enough credits
-	(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_btn_creer) ctrlEnable (_credits_factory != 0);
+    // Enable creation button only if enough credits
+    (_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_btn_creer) ctrlEnable (_credits_factory != 0);
 
-	if (_credits_factory == -1) then
-	{
-		(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_credits_restants) ctrlSetText (format [STR_R3F_LOG_dlg_LO_credits_restants, "unlimited"]);
-	}
-	else
-	{
-		(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_credits_restants) ctrlSetText (format [STR_R3F_LOG_dlg_LO_credits_restants, _credits_factory]);
-	};
+    if (_credits_factory == -1) then
+    {
+        (_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_credits_restants) ctrlSetText (format [STR_R3F_LOG_dlg_LO_credits_restants, "unlimited"]);
+    }
+    else
+    {
+        (_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_credits_restants) ctrlSetText (format [STR_R3F_LOG_dlg_LO_credits_restants, _credits_factory]);
+    };
 
-	// Afficher les infos de l'objet
-	if (lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects != -1) then
-	{
-		//(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_infos) ctrlSetStructuredText ([lbData [R3F_LOG_IDC_dlg_LO_liste_objects, lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects]] call R3F_LOG_FNCT_format_features_logistics);
-	};
+    // Afficher les infos de l'objet
+    if (lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects != -1) then
+    {
+        //(_dlg_liste_objects displayCtrl R3F_LOG_IDC_dlg_LO_infos) ctrlSetStructuredText ([lbData [R3F_LOG_IDC_dlg_LO_liste_objects, lbCurSel R3F_LOG_IDC_dlg_LO_liste_objects]] call R3F_LOG_FNCT_format_features_logistics);
+    };
 
-	// Close the dialog box if the factory is no longer accessible
-	if (!alive _factory || (_factory getVariable "R3F_LOG_CF_disabled")) then
-	{
-		closeDialog 0;
-	};
+    // Close the dialog box if the factory is no longer accessible
+    if (!alive _factory || (_factory getVariable "R3F_LOG_CF_disabled")) then
+    {
+        closeDialog 0;
+    };
 
-	sleep 0.15;
+    sleep 0.15;
 };
 
 call R3F_LOG_VIS_FNCT_terminer_visualisation;

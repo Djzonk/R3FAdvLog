@@ -17,8 +17,7 @@
 
 params ["_vehicle"];
 TRACE_1("params", _vehicle);
-
-/*TODO: intigrate addExtra function*/
+private _type = typeof _vehicle;
 
 // do nothing if the class is already initialized
 if (_type in GVAR(initializedVehicleClasses_init)) exitWith {};
@@ -28,7 +27,7 @@ GVAR(initializedVehicleClasses_init) pushBack _type;
 _object setVariable ['ace_cargo_space', 0];
 _object setVariable ['ace_cargo_canLoad', 0];
 
-private _config = configFile >> "CfgVehicles" >> typeof _vehicle;
+private _config = configFile >> "CfgVehicles" >> _type;
 
 if (getNumber _config >> QGVAR(canTransport) == 1 ) then {
     [_vehicle, true, _cargoCapacity] call FUNC(setTransport);

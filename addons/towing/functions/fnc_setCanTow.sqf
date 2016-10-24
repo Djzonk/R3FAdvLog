@@ -20,7 +20,7 @@ params ["_vehicle"];
 // Take ropes
 private _displayname = localize LSTRING(Action_Take);
 private _statement = {[_this, 10] call FUNC(takeTowRopes)};
-private _condition = {[_this,d] call FUNC(canTakeTowRopes)};
+private _condition = {[_this] call FUNC(canTakeTowRopes)};
 
 private _takeRopes = [QGVAR(takeRopes), _displayname,"",_statement,_condition] call ace_interact_menu_fnc_createAction;
 [_vehicle, 0, ["ACE_MainActions"],_takeRopes] call ace_interact_menu_fnc_addActionToObject;
@@ -46,5 +46,5 @@ _statement = {
 };
 _condition = {};
 
-private _winchControl = [QGVAR(winchControl)], localize LSTRING(Action_WinchControl),"", _statement, _condition] call ace_interact_menu_fnc_createAction;
+private _winchControl = [QGVAR(winchControl), localize LSTRING(Action_WinchControl),"", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [_vehicle, 0, ["ACE_MainActions"], _winchControl] call ace_interact_menu_fnc_addActionToObject;

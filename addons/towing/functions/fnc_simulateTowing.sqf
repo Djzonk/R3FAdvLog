@@ -130,7 +130,7 @@ while {!_doExit} do {
         private _movedCargoVector = _newCargoHitchPosition vectorDiff _lastCargoHitchPosition;
         private _newCargoDir = vectorNormalized (_cargoVector vectorAdd _movedCargoVector);
         //if(_isRearCargoHitch) then {
-        //	_newCargoDir = _newCargoDir vectorMultiply -1;
+        //  _newCargoDir = _newCargoDir vectorMultiply -1;
         //};
         _lastCargoVectorDir = _newCargoDir;
         private _newCargoPosition = _newCargoHitchPosition vectorAdd (_newCargoDir vectorMultiply -(vectorMagnitude (_cargoHitchModelPos)));

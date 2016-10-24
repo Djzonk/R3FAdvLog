@@ -16,7 +16,7 @@
  */
  #include "script_component.hpp"
 
- params ["_object", ["_enablePush", true]];
+ params [["_object", objNull], ["_enablePush", true]];
  private _type = typeOf _object;
 
  // Sets/Updates Variable
@@ -31,7 +31,7 @@
  private _displayname = format [localize LSTRING(Push), _name];
  private _icon = "";
  private _statement = {_this call ace_interaction_fnc_push};
- private _condition = {_target call FUNC(canPush)};
+ private _condition = {[_target] call FUNC(canPush)};
 
  private _action = [QGVAR(push), _displayname, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
 

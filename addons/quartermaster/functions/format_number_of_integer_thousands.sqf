@@ -13,7 +13,7 @@
  */
 /*
 
-			TODO: SWITCH TO CBA_fnc_formatNumber
+            TODO: SWITCH TO CBA_fnc_formatNumber
 
  */
 #include "script_component.hpp"
@@ -27,20 +27,20 @@ _number = floor abs _number;
 
 _str_number = "";
 while {_number >= 1000} do {
-	_hundreds = _number - (1000 * floor (0.001 * _number));
-	_number = floor (0.001 * _number);
+    _hundreds = _number - (1000 * floor (0.001 * _number));
+    _number = floor (0.001 * _number);
 
-	if (_hundreds < 100) then {
-		if (_hundreds < 10) then {
-			_str_hundreds = "00" + str _hundreds;
-		} else {
-			_str_hundreds = "0" + str _hundreds;
-		};
-	} else {
-		_str_hundreds = str _hundreds;
-	};
+    if (_hundreds < 100) then {
+        if (_hundreds < 10) then {
+            _str_hundreds = "00" + str _hundreds;
+        } else {
+            _str_hundreds = "0" + str _hundreds;
+        };
+    } else {
+        _str_hundreds = str _hundreds;
+    };
 
-	_str_number = "." + _str_hundreds + _str_number;
+    _str_number = "." + _str_hundreds + _str_number;
 };
 
 _str_sign + str _number + _str_number

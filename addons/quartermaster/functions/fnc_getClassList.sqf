@@ -27,11 +27,11 @@ _index = -1;
 
 if ((typeName _category) == "STRING") then
 {
-	_index = _categories find _category;
+    _index = _categories find _category;
 }
 else
 {
-	_index = _category;
+    _index = _category;
 };
 
 if (_index == -1) exitWith {[]};
@@ -43,7 +43,7 @@ _classesForCat = _classesPerCat param [_index, []];
 _classList = [];
 
 {
-	_classList append [_x param [0, "Land_ToiletBox_F"]];
+    _classList append [_x param [0, "Land_ToiletBox_F"]];
 } forEach _classesForCat;
 
 _classList
