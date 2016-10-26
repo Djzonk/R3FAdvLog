@@ -64,7 +64,7 @@ uiNamespace setVariable [QGVAR(menuDisplay), _display];
         };
     };*/
     {
-        private _object = _x
+        private _object = _x;
         if !((typeOf _object) in _objectTab) then {
             _objectTab pushBack (typeOf _object);
             _quantityTab pushBack 1;
@@ -137,7 +137,7 @@ uiNamespace setVariable [QGVAR(menuDisplay), _display];
             if (uiNamespace getVariable QGVAR(menuSelected) == _class) then {
                 _ctrlList lbSetCurSel _index;
             };
-        } count _objectTab
+        } count _objectTab;
 
         (_display displayCtrl 65434) ctrlEnable true;
     };

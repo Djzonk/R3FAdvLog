@@ -16,17 +16,17 @@
  #include "script_component.hpp"
 
 params ["_object"];
-_type = typeOf _object;
+private _type = typeOf _object;
 TRACE_2("params",_object,_type);
 
 // do nothing if the class is already initialized
 if (_type in GVAR(initializedItemClasses_init)) exitWith {};
 GVAR(initializedItemClasses_init) pushBack _type;
 
-if (_object getVariable [QGVAR(canBeTransported), false] == true) then {
+if (_object getVariable [QGVAR(canBeTransported), getNumber (configFile >> "CfgVehicles" >> _type >> QGVAR(canBeTransported))] == 1) then {
     [_object, true] call FUNC(setTransportable);
 };
 
-if (_object getVariable [QGVAR(canTransport), false] == true) then {
+if (_object getVariable [QGVAR(canTransport), getNumber (configFile >> "CfgVehicles" >> _type >> QGVAR(canTransport))] == 1) then {
     [_object, true] call FUNC(setTransport);
 };

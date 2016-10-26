@@ -17,22 +17,22 @@ class Extended_PostInit_EventHandlers {
 class Extended_Init_EventHandlers {
     class ThingX {
         class ADDON {
-            init = QUOTE(_this call DFUNC(initObject); _this call DFUNC(initVehicle));
+            init = QUOTE(_this call DFUNC(initObject));
         };
     };
     class LandVehicle {
         class ADDON {
-            init = QUOTE(_this call DFUNC(initVehicle));
+            init = QUOTE(_this call DFUNC(initObject));
         };
     };
     class Air {
         class ADDON {
-            init = QUOTE(_this call DFUNC(initVehicle));
+            init = QUOTE(_this call DFUNC(initObject));
         };
     };
     class Ship {
         class ADDON {
-            init = QUOTE(_this call DFUNC(initVehicle));
+            init = QUOTE(_this call DFUNC(initObject));
         };
     };
     class StaticWeapon {

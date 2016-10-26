@@ -14,25 +14,25 @@
  *
  * Public: Yes
  */
- #include "script_component.hpp"
+#include "script_component.hpp"
 
- params [["_object", objNull], ["_enablePush", true]];
- private _type = typeOf _object;
+params [["_object", objNull], ["_enablePush", true]];
+private _type = typeOf _object;
 
- // Sets/Updates Variable
- SETVAR(_object,QGVAR(canPush), _enablePush);
+// Sets/Updates Variable
+_object setVariable [QGVAR(canPush), _enablePush];
 
- // do nothing if the class is already initialized
- if (_type in GVAR(initializedItemClasses_push)) exitWith {};
- GVAR(initializedItemClasses_push) pushBack _type;
+// do nothing if the class is already initialized
+if (_type in GVAR(initializedItemClasses_push)) exitWith {};
+GVAR(initializedItemClasses_push) pushBack _type;
 
 
- private _name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
- private _displayname = format [localize LSTRING(Push), _name];
- private _icon = "";
- private _statement = {_this call ace_interaction_fnc_push};
- private _condition = {[_target] call FUNC(canPush)};
+private _name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
+private _displayname = format [localize LSTRING(Push), _name];
+private _icon = "";
+private _statement = {_this call ace_interaction_fnc_push};
+private _condition = {[_target] call FUNC(canPush)};
 
- private _action = [QGVAR(push), _displayname, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
+private _action = [QGVAR(push), _displayname, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
 
- [_type, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
+[_type, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;

@@ -29,14 +29,10 @@ GVAR(initializedItemClasses_init) pushBack _type;
 _object setVariable ['ace_dragging_canCarry', false];
 _object setVariable ['ace_dragging_canDrag', false];
 
-//Initalize Variables
-_object setVariable [QGVAR(transportedBy), objNull];
-_object setVariable [QGVAR(movedBy), objNull];
-
-if (_object getVariable QGVAR(canMove), false == true) then {
+if (object getVariable [QGVAR(canMove), getNumber (configFile >> "CfgVehicles" >> _type >> QGVAR(canMove))] == 1) then {
     [_object, true] call FUNC(setMovable);
 };
 
-if (_object getVariable QGVAR(canPush), false == true) then {
+if (_object getVariable [QGVAR(canPush), getNumber (configFile >> "CfgVehicles" >> _type >> QQGVAR(canPush))] == 1) then {
     [_object, true] call FUNC(setPushable);
 };

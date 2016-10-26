@@ -26,6 +26,9 @@ _object setVariable [QGVAR(canMove), _enableMove];
 if (_type in GVAR(initializedItemClasses)) exitWith {};
 GVAR(initializedItemClasses) pushBack _type;
 
+//Initalize variables
+_object setVariable [QGVAR(movedBy), objNull];
+
 private _name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
 private _displayname = format [localize LSTRING(Move), _name];
 private _icon = "z\ace\addons\dragging\UI\icons\box_carry.paa";

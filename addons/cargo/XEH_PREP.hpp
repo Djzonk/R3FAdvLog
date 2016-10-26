@@ -1,10 +1,10 @@
 PREP(autoLoad);
 PREP(canLoad);
 PREP(initObject);
-PREP(initVehicle);
 PREP(loadObject);
 PREP(loadSelection);
 PREP(OnMenuOpen);
 PREP(setTransport);
 PREP(SetTransportable);
 PREP(unLoadObject);
+PREP(updateCargoList);

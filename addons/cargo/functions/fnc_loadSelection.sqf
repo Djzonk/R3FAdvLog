@@ -16,11 +16,20 @@
 */
 #include "script_component.hpp"
 
-params ["_player", "_target"]
+params ["_player", "_target"];
 
-private _object = _player getVariable QGVAR(selectedObject);
+private _object = _player getVariable [QGVAR(selectedObject), objNull];
 
 [localize LSTRING(load_InProgress)] call ace_common_fnc_displayTextStructured;
+
+switch ([_object,_target] call FUNC(canLoad)) do {
+    case 1: {ERROR("R3FAdvLog_cargo_fnc_loadObject Object is Null"); _return = false;};
+    case 2: {hint format [localize LSTRING(Fail_Occupied)];_return = false;};
+    case 3: {hint localize LSTRING(Fail_Nospace);_return = false;};
+    case 4: {hint format [localize LSTRING(Fail_Tofar), getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];_return = false;};
+    default {_return = true;};
+};
+if !(_return) exitWith {};
 
 //Added by crowe to give a little animation
     /*[] spawn {
@@ -43,12 +52,5 @@ switch (currentWeapon player) do {
     default {[player,"AinvPknlMstpSlayWrflDnon_medic",0] call ace_common_fnc_doAnimation};
 };
 
-_outcome = [_object,_target]call FUNC(loadObject);
-
-systemChat format [STR_R3F_LOG_action_charger_fait,
-    getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName"),
-    getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName")];
-
-if (_outcome == true) then {
-    _player setVariable [QGVAR(selectedObject), objNull];
-};
+[_object,_target]call FUNC(loadObject);
+_player setVariable [QGVAR(selectedObject), objNull];

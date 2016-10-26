@@ -16,3 +16,9 @@
 // MINIMAL required version for the Mod. Components can specify others..
 #define REQUIRED_VERSION 1.56
 #define REQUIRED_CBA_VERSION {3,1,0}
+
+// Mod Wide Debug
+#define DEBUG_MODE_FULL
+#define DISABLE_COMPILE_CACHE
+// #define CBA_DEBUG_SYNCHRONOUS
+// #define ENABLE_PERFORMANCE_COUNTERS

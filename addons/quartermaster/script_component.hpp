@@ -7,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_Quartermaster
+#ifdef DEBUG_ENABLED_QUARTERMASER
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_Quartermaster
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_Quartermaster
+#ifdef DEBUG_SETTINGS_QUARTERMASER
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_QUARTERMASER
 #endif
 
 #include "\z\r3fadvlog\addons\main\script_macros.hpp"

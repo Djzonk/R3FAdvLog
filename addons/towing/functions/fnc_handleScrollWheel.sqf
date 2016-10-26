@@ -20,7 +20,7 @@ private _helper = ACE_player getVariable [QGVAR(towRopeHelper), objNull];
 
 if (isNull _helper) exitWith {};
 
-private _rope = getVariable _helper [QGVAR(towRope), objNull];
+private _rope = _helper getVariable [QGVAR(towRope), objNull];
 private _ropeLength = ropeLength _rope;
 
 if (_amount > 0) then {

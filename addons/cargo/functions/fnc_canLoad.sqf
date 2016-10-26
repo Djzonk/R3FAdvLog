@@ -17,8 +17,10 @@
 #include "script_component.hpp"
 params ["_object", "_vehicle"];
 
-private _maxCapacity = _object getVariable QGVAR(maxCapacity);
-private _totalCargoSize = _target getVariable QGVAR(totalCargoSize);
+if !(_object isEqualType objNull) exitWith {};
+
+private _maxCapacity = _vehicle getVariable QGVAR(maxCapacity);
+private _totalCargoSize = _vehicle getVariable QGVAR(totalCargoSize);
 private _objectSize = _object getVariable QGVAR(size);
 
 if (isNull _object) exitWith {1};
