@@ -10,7 +10,7 @@
  * Return true if loading successful <BOOL>
  *
  * Example:
- * ["example"] call R3FAdvLog_cargo_fnc_loadObject
+ * ["example"] call r3fadvlog_cargo_fnc_loadObject
  *
  * Public: No
  */

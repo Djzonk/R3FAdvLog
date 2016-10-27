@@ -17,6 +17,7 @@
  * Public: Yes
  */
 #include "script_component.hpp"
+
 params [["_vehicle", objNull],["_autoLoadCargoList", []]];
 TRACE_3("params",_vehicle,_autoLoadCargoList);
 

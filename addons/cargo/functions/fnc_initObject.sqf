@@ -30,3 +30,22 @@ if (_object getVariable [QGVAR(canBeTransported), getNumber (configFile >> "CfgV
 if (_object getVariable [QGVAR(canTransport), getNumber (configFile >> "CfgVehicles" >> _type >> QGVAR(canTransport))] == 1) then {
     [_object, true] call FUNC(setTransport);
 };
+/*
+ * Author: [Name of Author(s)]
+ * [Description]
+ *
+ * Arguments:
+ * 0: Argument Name <TYPE>
+ *
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call r3fadvlog_cargo_fnc_initObject
+ * ["example"] call r3fadvlog_cargo_fnc_initObject
+ * ["example"] call
+ *
+ * Public: [Yes/No]
+ */
+#include "script_component.hpp"
+
